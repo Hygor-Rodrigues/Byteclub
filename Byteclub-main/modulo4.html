@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 4 - CSS Básico</title> 
+  <link rel="stylesheet" href="estilizacao.css">
+  <link rel="icon" href="imagens/favcon_.ico" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <button class="logo-btn" onclick="window.location.href='homeCurso.html'">
+        <img src="imagens/logo.png" alt="ByteClub Logo">
+      </button>
+    </div>
+    <nav>
+      <a href="homeCurso.html">Início</a>
+      <a href="forum.html">Fórum</a>
+      <a href="suporte.html">Suporte</a>
+    </nav>
+  </header>
+
+  <section class="intro" style="text-align: left;">
+    <h2>Módulo 4 - CSS Básico</h2>
+    <p>Estilize páginas com CSS e aprenda design web responsivo.</p>
+  </section>
+
+  <div class="module-grid">
+    
+    <div class="main-content"> 
+        
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_DO_CSS_BASICO" title="Aula sobre CSS Básico"></iframe>
+        <button class="btn btn-primary" style="width: auto;">▶ Assistir Aula</button>
+      </div>
+
+      <div class="conteudo">
+        <div class="tabs">
+          <button class="active">Teoria</button>
+          <button>Código</button>
+        </div>
+
+        <p><strong>O que é CSS?</strong></p><br>
+        <p>CSS (**Cascading Style Sheets**) é a linguagem usada para descrever a **apresentação** de um documento escrito em HTML. Ele controla cores, fontes, layouts e o posicionamento dos elementos.</p><br>
+        
+        <p><strong>Sintaxe do CSS:</strong></p><br>
+        <p>As regras CSS consistem em um **seletor** e um bloco de **declarações**:</p>
+        <pre>
+          <code>
+seletor {
+  propriedade: valor;
+  propriedade-2: valor-2;
+}
+          </code>
+        </pre>
+        <ul>
+          <li>**Seletor**: Aponta para o elemento HTML.</li>
+          <li>**Declaração**: Combinação de **propriedade** e **valor**.</li>
+        </ul><br>
+        
+        <p><strong>Exemplo Básico de CSS:</strong></p><br>
+        <pre>
+          <code>
+h1 {
+  color: #333333;
+  text-align: center;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+          </code>
+        </pre><br>
+
+        <p><strong>Exercício Prático:</strong> No arquivo `estilizacao.css`, crie uma regra que mude a cor de fundo do `<body>` para um cinza claro e defina a fonte de todo o texto como 'Arial'.</p>
+      </div>
+      
+    </div> <div class="sidebar">
+      
+      <div class="box">
+        <h3>Atividade prática</h3>
+        <button class="btn btn-primary" onclick="window.location.href='quiz4.html'">Iniciar quiz</button>
+        <button class="btn btn-secondary" onclick="window.location.href='exercicioModulo4.html'">Exercício de Estilização</button>
+      </div>
+
+      <div class="box">
+        <h3>Navegação</h3>
+        <button class="btn btn-secondary" onclick="window.location.href='modulo3.html'">Módulo Anterior</button>
+        <button class="btn btn-secondary" onclick="window.location.href='modulos.html'">Módulos</button>
+        <button class="btn btn-primary" onclick="window.location.href='modulo5.html'">Próximo Módulo</button>
+      </div>
+      
+    </div> </div> <footer>
+    <div>
+      <strong>Nossa Equipe:</strong><br>
+      LUIS FELIPE AZEVEDO ROQUE<br>
+      LUCAS ANTÔNIO ANDRADE REIS<br>
+      JOÃO PEDRO DE AZEVEDO DOMINGUES<br>
+      HYGOR RODRIGUES DA SILVA GOMES<br>
+      LUCAS TERRA FANTONE
+    </div>
+    <div>
+      <strong>Sobre o Curso</strong><br>
+      Desenvolvido por Instituto de Tecnologia Educacional<br>
+      © 2025 DevCourse. Todos os direitos reservados.
+    </div>
+    <title>Rede Social</title>
+  
+    <div class="rede-social">
+    <strong>Siga-nos:</strong>
+    <img src="imagens/instagram.png" alt="Instagram" class="icone">
+    <a href="https://www.instagram.com/bytecluboficial" target="_blank">@bytecluboficial</a>
+  </div>
+  </footer>
+</body>
+</html>

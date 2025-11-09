@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fórum da Comunidade - ByteClub</title>
+    <link rel="icon" href="imagens/favcon_.ico" type="image/x-icon">
+
+    <style>
+        /* CSS COMPLETO FORNECIDO PELO USUÁRIO (Incluído aqui para garantir a funcionalidade) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            min-height: 100vh;
+        }
+
+        /* Cabeçalho  */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .logo, .logo-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-btn {
+            background: none;
+            border: none;
+            outline: none;
+            box-shadow: none;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .logo-btn:focus,
+        .logo-btn:focus-visible,
+        .logo-btn:active {
+            outline: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        /* ESTILO DA LOGO ATUALIZADO (Usando a imagem fornecida) */
+        .logo-btn img,
+        .logo img {
+            width: 165px; /* Tamanho da logo ajustado */
+            height: auto;
+            border: none;
+            outline: none;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        /* Navegação  */
+        nav a {
+            text-decoration: none;
+            margin: 0 10px;
+            color: #004080;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            background-color: #e6f0ff;
+        }
+
+        /* Containers e Formulários*/
+        .container, .container-box {
+            background-color: #e6f0ff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 30px;
+            width: 80%;
+            max-width: 350px;
+            margin: 80px auto;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .container-box.large {
+            max-width: 700px;
+            text-align: left;
+            background-color: #fff;
+            padding: 20px;
+        }
+
+        .container h2 {
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #004080;
+        }
+
+        /* Campos de Entrada*/
+        .input-field, .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-field label,
+        .input-group label {
+            font-size: 14px;
+            display: block;
+            margin-bottom: 5px;
+            color: #004080;
+        }
+
+        .input-field input,
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            outline: none;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .input-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Botões*/
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+            color: white;
+            background-color: #1351cc;
+            margin-bottom: 10px;
+        }
+
+        .btn:hover {
+            background-color: #003da5;
+        }
+
+        .btn-primary {
+            background-color: #004080;
+        }
+
+        .btn-primary:hover {
+            background-color: #003366;
+        }
+
+        .btn-secondary {
+            background-color: #80bfff;
+            color: #004080;
+        }
+
+        .btn-secondary:hover {
+            background-color: #4da6ff;
+            color: white;
+        }
+
+        .btn-cadastro {
+            background-color: #63b1ff;
+            color: #004080;
+        }
+
+        .btn-cadastro:hover {
+            background-color: #4da6ff;
+            color: white;
+        }
+
+        /* Botões empilhados verticalmente  */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 10px;
+        }
+
+        .button-group .btn {
+            width: 100%;
+        }
+
+        /*Página Inicial - Banner (Não usado no Fórum, mas mantido no CSS)*/
+        .banner {
+            display: none; 
+        }
+
+        /* Fórum */
+        .forum-header {
+            background: #cce0ff;
+            padding: 20px;
+            text-align: left;
+            max-width: 800px; /* Limita a largura do header do fórum */
+            margin: 40px auto 0;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .forum-header h2 {
+            margin: 0;
+            color: #000;
+            font-size: 28px;
+        }
+
+        .forum-header p {
+            margin: 5px 0 15px;
+            color: #333;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        .search-bar .btn {
+            width: auto;
+            padding: 8px 14px;
+            font-size: 14px;
+            margin-bottom: 0;
+            border-radius: 20px;
+            background-color: #0080ff; /* Cor do botão Nova Pergunta */
+        }
+
+        /* Post */
+        .post {
+            background: #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto 0;
+            width: 85%;
+            max-width: 800px;
+            box-shadow: 0px 2px 4px rgba(0,0,0,0.05);
+            transition: background 0.2s;
+        }
+        
+        .post:hover {
+            background: #d4d4d4;
+        }
+
+        .post h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            background: #f5f5f5;
+            padding: 5px 10px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .post p {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .post-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .author-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #004080; /* Cor de fundo do ícone */
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .tags {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #fff;
+            border: 1px solid #aaa;
+            border-radius: 6px;
+            padding: 4px 8px;
+            font-size: 12px;
+            margin-right: 5px;
+            font-weight: bold;
+            color: #004080;
+        }
+
+        /* Formulário de Nova Pergunta */
+        .container-box.large {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 30px;
+        }
+
+        .input-group textarea {
+            min-height: 100px;
+        }
+
+        .input-group input, .input-group textarea {
+            border: 1px solid #004080;
+        }
+
+        .btn-primary {
+            background-color: #004080;
+        }
+        
+        .btn-primary:hover {
+            background-color: #003366;
+        }
+        
+        /* Rodapé */
+        footer {
+            /* Mantém o estilo do footer */
+            margin-top: auto;
+            width: 100%;
+            background-color: #cfe2ff;
+            padding: 17px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            font-size: 12px;
+            text-align: left;
+            color: #333;
+            box-shadow: 0px -2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Estilo do nome e botão sair */
+        #navbar .user-name {
+            display: inline-block;
+            padding: 8px 12px;
+            margin-left: 6px;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            color: #004080;
+        }
+
+        #navbar .user-name:hover {
+            background-color: #e6f0ff;
+        }
+
+        #navbar .logout-link {
+            display: inline-block;
+            padding: 8px 10px;
+            margin-left: 8px;
+            border-radius: 6px;
+            text-decoration: none;
+            cursor: pointer;
+            color: #d9534f;
+            font-weight: 600;
+        }
+
+        #navbar .logout-link:hover {
+            background: rgba(217,83,79,0.08);
+        }
+        
+        /* Estilo da Rede Social no Footer */
+        .rede-social, .email-contato {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Alinhamento à esquerda no footer */
+            gap: 8px; 
+            margin-bottom: 8px;
+        }
+        .icone {
+            width: 24px;
+            height: 24px;
+        }
+        .rede-social img { /* Estilo para a imagem do Instagram */
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Adicionando responsividade para o container de posts */
+        @media (max-width: 850px) {
+            .post, .container-box.large {
+                width: 95%;
+            }
+            .forum-header {
+                width: 95%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <button class="logo-btn" onclick="window.location.href='homeCurso.html'">
+                <img src="imagens/logo.png" alt="ByteClub Logo">
+            </button>
+        </div>
+        <nav id="navbar">
+            <a href="homeCurso.html">Início</a>
+            <a href="modulos.html">Módulos</a>
+            <a href="forum.html" style="background-color: #e6f0ff;">Fórum</a> <a href="suporte.html">Suporte</a>
+            <a href="login.html" id="loginLink">Entrar</a>
+            </nav>
+    </header>
+
+    <main>
+        <div class="forum-header">
+            <h2>Fórum da comunidade</h2>
+            <p>Tire suas dúvidas, compartilhe conhecimento e conecte-se com outros estudantes</p>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar posts..." />
+                <button class="btn" id="newPostBtn">Nova Pergunta</button>
+            </div>
+        </div>
+
+        <div class="container-box large" id="postForm" style="display: none;">
+            <div class="input-group">
+                <label for="postTitle">Título da Pergunta:</label>
+                <input type="text" id="postTitle" placeholder="Ex: Dúvida sobre lógica de loops" />
+            </div>
+            <div class="input-group">
+                <label for="postContent">Descreva sua Dúvida:</label>
+                <textarea id="postContent" rows="5" placeholder="Detalhe sua questão, o que você já tentou e o que precisa de ajuda."></textarea>
+            </div>
+            <button class="btn btn-primary" id="submitPost" style="width: auto; padding: 10px 20px; float: right;">Publicar Dúvida</button>
+            <div style="clear: both;"></div>
+        </div>
+        
+        <div id="postsContainer">
+            </div>
+
+    </main>
+    
+    <footer>
+        <div>
+            <strong>Nossa Equipe:</strong><br>
+            LUIS FELIPE AZEVEDO ROQUE<br>
+            LUCAS ANTÔNIO ANDRADE REIS<br>
+            JOÃO PEDRO DE AZEVEDO DOMINGUES<br>
+            HYGOR RODRIGUES DA SILVA GOMES<br>
+            LUCAS TERRA FANTONE
+        </div>
+        <div>
+            <strong>Sobre o Curso</strong><br>
+            Desenvolvido por Instituto de Tecnologia Educacional<br>
+            © 2025 DevCourse. Todos os direitos reservados.
+        </div>
+        <div class="rede-social">
+            <strong>Siga-nos:</strong>
+            <img src="imagens/instagram.png" alt="Instagram" class="icone">
+            <a href="https://www.instagram.com/bytecluboficial" target="_blank">@bytecluboficial</a>
+        </div>
+    </footer>
+
+    <script>
+        const newPostBtn = document.getElementById('newPostBtn');
+        const postForm = document.getElementById('postForm');
+        const submitPost = document.getElementById('submitPost');
+        const postsContainer = document.getElementById('postsContainer');
+        const loginLink = document.getElementById('loginLink');
+        const navbar = document.getElementById('navbar');
+        
+        // --- Lógica de Usuário Logado ---
+        const usuarioLogado = localStorage.getItem('usuarioLogado');
+        const userName = usuarioLogado ? JSON.parse(usuarioLogado).nome : "Usuário Anônimo"; 
+        
+        if (usuarioLogado) {
+            const usuario = JSON.parse(usuarioLogado);
+
+            // Oculta o botão "Entrar"
+            loginLink.style.display = 'none';
+
+            // Cria o nome do usuário
+            const nomeUsuario = document.createElement('span'); // Mudado para span para não ser link de navegação padrão
+            nomeUsuario.className = 'user-name';
+            nomeUsuario.textContent = `Olá, ${usuario.nome}!`;
+
+            // Cria botão "Sair"
+            const sair = document.createElement('a');
+            sair.className = 'logout-link';
+            sair.textContent = 'Sair';
+            sair.href = '#';
+            sair.addEventListener('click', (e) => {
+                e.preventDefault();
+                localStorage.removeItem('usuarioLogado');
+                window.location.href = 'login.html';
+            });
+
+            navbar.appendChild(nomeUsuario);
+            navbar.appendChild(sair);
+        }
+
+
+        // --- Funções de LocalStorage ---
+        function savePosts(posts) {
+            localStorage.setItem('forumPosts', JSON.stringify(posts));
+        }
+
+        function getPosts() {
+            return JSON.parse(localStorage.getItem('forumPosts')) || [];
+        }
+
+        // --- Função de Renderização (Estilo do CSS fornecido) ---
+        function renderPosts() {
+            const posts = getPosts();
+            postsContainer.innerHTML = '';
+
+            if (posts.length === 0) {
+                // Mensagem quando não há posts
+                postsContainer.innerHTML = '<p class="container-box large" style="text-align: center; color: #555; max-width: 800px;">Nenhuma pergunta publicada ainda. Seja o primeiro a perguntar!</p>';
+                return;
+            }
+
+            posts.forEach((post, index) => {
+                const div = document.createElement('div');
+                div.className = 'post'; 
+                
+                // Trata as tags, garantindo que seja um array e usando as duas primeiras
+                const tags = Array.isArray(post.tags) ? post.tags : [post.tags];
+                const tagsHtml = tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+
+                div.innerHTML = `
+                    <h3>${post.title}</h3>
+                    <p>${post.content}</p>
+                    <div class="post-footer">
+                        <div class="author">
+                            <div class="author-icon">${post.author.charAt(0).toUpperCase()}</div> 
+                            <div>
+                                <strong>${post.author}</strong><br>
+                                <span style="color: #004080; font-size: 12px;">Estudante</span>
+                            </div>
+                        </div>
+                        <div class="tags">
+                            ${tagsHtml}
+                        </div>
+                        <span class="time">${post.time}</span>
+                    </div>
+                `;
+                postsContainer.appendChild(div);
+            });
+        }
+
+        // --- Event Listener para Nova Pergunta (Mostrar/Esconder) ---
+        newPostBtn.addEventListener('click', () => {
+            if (!usuarioLogado) {
+                alert('Você precisa estar logado para criar uma nova pergunta.');
+                window.location.href = 'login.html';
+                return;
+            }
+            // Alterna a visibilidade do formulário
+            postForm.style.display = postForm.style.display === 'block' ? 'none' : 'block';
+            if (postForm.style.display === 'block') {
+                document.getElementById('postTitle').focus(); 
+            }
+        });
+
+        // --- Event Listener para Publicar (Submeter) ---
+        submitPost.addEventListener('click', () => {
+            const title = document.getElementById('postTitle').value.trim();
+            const content = document.getElementById('postContent').value.trim();
+
+            if (!title || !content) {
+                alert('Preencha o título e o conteúdo antes de publicar.');
+                return;
+            }
+            
+            const posts = getPosts();
+            
+            // Cria um novo post
+            const newPost = {
+                title: title,
+                content: content,
+                author: userName,
+                time: "Agora mesmo", 
+                tags: [title.split(' ')[0].toLowerCase()] // Gera uma tag simples do primeiro nome
+            };
+
+            posts.unshift(newPost);
+            savePosts(posts);
+            renderPosts();
+
+            // Limpar e esconder o formulário
+            document.getElementById('postTitle').value = '';
+            document.getElementById('postContent').value = '';
+            postForm.style.display = 'none';
+        });
+
+        // Simula a carga de posts iniciais (opcional, para testes)
+        function loadInitialPosts() {
+            if (getPosts().length === 0) {
+                const initialPosts = [
+                    {
+                        title: "Lógica de programação",
+                        content: "Sou completamente iniciante e gostaria de dicas sobre como começar a pensar de forma lógica para programação...",
+                        author: "André Fernandes",
+                        time: "4 horas atrás",
+                        tags: ["lógica", "dicas"]
+                    },
+                    {
+                        title: "Java script",
+                        content: "Dúvida sobre loops em JavaScript. Estou com dificuldade para entender a diferença entre for, while e do-while. Alguém pode me explicar?",
+                        author: "Marcos Silvério",
+                        time: "2 horas atrás",
+                        tags: ["javascript", "loops"]
+                    }
+                ];
+                savePosts(initialPosts);
+            }
+        }
+
+        // Inicia o carregamento e renderização dos posts
+        loadInitialPosts();
+        renderPosts();
+    </script>
+</body>
+</html>
