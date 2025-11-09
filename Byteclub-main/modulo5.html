@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 5 - JavaScript Básico</title> 
+  <link rel="stylesheet" href="estilizacao.css">
+  <link rel="icon" href="imagens/favcon_.ico" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <button class="logo-btn" onclick="window.location.href='homeCurso.html'">
+        <img src="imagens/logo.png" alt="ByteClub Logo">
+      </button>
+    </div>
+    <nav>
+      <a href="homeCurso.html">Início</a>
+      <a href="forum.html">Fórum</a>
+      <a href="suporte.html">Suporte</a>
+    </nav>
+  </header>
+
+  <section class="intro" style="text-align: left;">
+    <h2>Módulo 5 - JavaScript Básico</h2>
+    <p>Dê interatividade ao seu site com JavaScript.</p>
+  </section>
+
+  <div class="module-grid">
+    
+    <div class="main-content"> 
+        
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_DO_JAVASCRIPT_BASICO" title="Aula sobre JavaScript Básico"></iframe>
+        <button class="btn btn-primary" style="width: auto;">▶ Assistir Aula</button>
+      </div>
+
+      <div class="conteudo">
+        <div class="tabs">
+          <button class="active">Teoria</button>
+          <button>Código</button>
+        </div>
+
+        <p><strong>O que é JavaScript (JS)?</strong></p><br>
+        <p>JavaScript é uma linguagem de programação que permite implementar funcionalidades complexas nas páginas web. É a "terceira camada" da web (após HTML e CSS) e é responsável por tornar as páginas **interativas**.</p><br>
+        
+        <p><strong>Como o JS Funciona no Navegador:</strong></p><br>
+        <p>O JavaScript manipula o **DOM (Document Object Model)**, que é a representação em árvore da sua página HTML, permitindo que o código altere o conteúdo, a estrutura e o estilo de qualquer elemento na página em tempo real.</p><br>
+
+        <p><strong>Conceitos Fundamentais:</strong></p><br>
+        <ul>
+          <li>**Variáveis**: Usamos `let`, `const` e `var` para armazenar dados.</li>
+          <li>**Funções**: Blocos de código reutilizáveis que executam tarefas.</li>
+          <li>**Eventos**: Ações do usuário ou do navegador que disparam o código (ex: `click`, `mouseover`).</li>
+        </ul><br>
+        
+        <p><strong>Exemplo Básico de JavaScript (Alerta ao Clicar):</strong></p><br>
+        <pre>
+          <code>
+// Função simples que exibe uma mensagem
+function saudacao() {
+  alert("Olá, bem-vindo ao JavaScript!");
+}
+
+// Para usar em um botão HTML: &lt;button onclick="saudacao()"&gt;Clique&lt;/button&gt;
+          </code>
+        </pre><br>
+
+        <p><strong>Exercício Prático:</strong> Crie um botão e use JavaScript para que, ao ser clicado, ele mude a cor de fundo de um parágrafo HTML que você criou anteriormente.</p>
+        </div>
+      
+    </div> <div class="sidebar">
+      
+      <div class="box">
+        <h3>Atividade prática</h3>
+        <button class="btn btn-primary" onclick="window.location.href='quiz5.html'">Iniciar quiz</button>
+        <button class="btn btn-secondary" onclick="window.location.href='exercicioModulo5.html'">Exercício de Interatividade</button>
+      </div>
+
+      <div class="box">
+        <h3>Navegação</h3>
+        <button class="btn btn-secondary" onclick="window.location.href='modulo4.html'">Módulo Anterior</button>
+        <button class="btn btn-secondary" onclick="window.location.href='modulos.html'">Módulos</button>
+        <button class="btn btn-primary" onclick="window.location.href='modulo6.html'">Próximo Módulo</button>
+      </div>
+      
+    </div> </div> <footer>
+    <div>
+      <strong>Nossa Equipe:</strong><br>
+      LUIS FELIPE AZEVEDO ROQUE<br>
+      LUCAS ANTÔNIO ANDRADE REIS<br>
+      JOÃO PEDRO DE AZEVEDO DOMINGUES<br>
+      HYGOR RODRIGUES DA SILVA GOMES<br>
+      LUCAS TERRA FANTONE
+    </div>
+    <div>
+      <strong>Sobre o Curso</strong><br>
+      Desenvolvido por Instituto de Tecnologia Educacional<br>
+      © 2025 DevCourse. Todos os direitos reservados.
+    </div>
+    <title>Rede Social</title>
+  
+    <div class="rede-social">
+    <strong>Siga-nos:</strong>
+    <img src="imagens/instagram.png" alt="Instagram" class="icone">
+    <a href="https://www.instagram.com/bytecluboficial" target="_blank">@bytecluboficial</a>
+  </div>
+  </footer>
+</body>
+</html>
