@@ -28,22 +28,6 @@ O curso está dividido em 6 etapas sequenciais, com foco na aprendizagem prátic
 
 ---
 
-## 🚀 Como Executar Localmente
-
-Para iniciar o curso e navegar entre os módulos no seu próprio computador, siga os passos abaixo:
-
-1.  **Clone o Repositório:**
-    ```bash
-    git clone [LINK DO SEU REPOSITÓRIO]
-    ```
-2.  **Acesse a Pasta:**
-    ```bash
-    cd ByteClub-Curso
-    ```
-3.  **Abra o Arquivo Principal:**
-    * Localize o arquivo **`modulos.html`** (o mapa geral do curso) ou **`homeCurso.html`** na pasta.
-    * Dê um clique duplo para abri-lo em seu navegador (Google Chrome, Firefox, etc.).
-
 **Observação:** O curso utiliza `localStorage` para simular o estado de login (`if (!localStorage.getItem('usuarioLogado'))`), garantindo que você seja redirecionado para `login.html` se não houver um usuário logado.
 
 ---
