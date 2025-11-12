@@ -106,5 +106,16 @@
     <a href="https://www.instagram.com/bytecluboficial" target="_blank">@bytecluboficial</a>
   </div>
   </footer>
+<script>
+  const proximoModulo = document.querySelector('button[onclick*="modulo2.html"]');
+  const liberado = localStorage.getItem("modulo2Liberado");
+
+  if (!liberado) {
+    proximoModulo.disabled = true;
+    proximoModulo.textContent = "Bloqueado (Conclua o Quiz 1, com 60% de acerto)";
+    proximoModulo.style.backgroundColor = "#999";
+    proximoModulo.style.cursor = "not-allowed";
+  }
+</script>
 </body>
 </html>
