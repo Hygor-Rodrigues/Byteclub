@@ -67,7 +67,7 @@
           <span class="numero-modulo">Módulo 3</span>
         </div>
       </div>
-      <p>Aprenda a criar a estrutura de sites com HTML.</p>
+      <p>Aprenda a criar a estrutura de sites com HTML.</p><br>
       <button onclick="window.location.href='modulo3.html'" class="btn-modulo">Iniciar Módulo</button>
     </div>
 
@@ -91,7 +91,7 @@
           <span class="numero-modulo">Módulo 5</span>
         </div>
       </div>
-      <p>Dê interatividade ao seu site com JavaScript.</p>
+      <p>Dê interatividade ao seu site com JavaScript.</p><br>
       <button onclick="window.location.href='modulo5.html'" class="btn-modulo">Iniciar Módulo</button>
     </div>
 
@@ -134,10 +134,39 @@
   </div>
   </footer>
 
-  <script> //Caso não esteja logado a pessoa será redirecionada para o login.
-    if (!localStorage.getItem('usuarioLogado')) {
-  window.location.href = 'login.html';
+<script>
+  // Verifica se o usuário está logado
+  if (!localStorage.getItem('usuarioLogado')) {
+    window.location.href = 'login.html';
   }
-  </script>
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Lista de módulos
+    const modulos = [2, 3, 4, 5, 6];
+
+    modulos.forEach(num => {
+      const botao = document.querySelector(`button[onclick*="modulo${num}.html"]`);
+      const liberado = localStorage.getItem(`modulo${num}Liberado`);
+
+      if (botao) {
+        if (!liberado) {
+          botao.style.pointerEvents = "none";
+          botao.style.backgroundColor = "#d9d9d9";
+          botao.style.color = "#777";
+          botao.style.cursor = "not-allowed";
+          botao.style.border = "1px solid #ccc";
+          botao.textContent = " Iniciar Módulo";
+        } else {
+          // LIBERADO
+          botao.style.pointerEvents = "auto";
+          botao.style.backgroundColor = "#333333";
+          botao.style.color = "#fff";
+          botao.style.cursor = "pointer";
+          botao.textContent = "Iniciar Módulo";
+        }
+      }
+    });
+  });
+</script>
 </body>
 </html>
