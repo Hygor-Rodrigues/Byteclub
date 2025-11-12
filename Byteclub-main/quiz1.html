@@ -6,6 +6,53 @@
   <link rel="stylesheet" href="estilizacao.css">
   <link rel="icon" href="imagens/favcon_.ico" type="image/x-icon">
   <title>Quiz - Módulo 1</title>
+  <style>
+     .errada {
+    color: red;
+    font-weight: bold;
+  }
+  .correta {
+    color: green;
+    font-weight: bold;
+  }
+  #botoesExtra {
+    margin-top: 15px;
+  }
+  .btn {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+  }
+  .btn:hover {
+    transform: scale(1.03);
+  }
+  .btn-primary {
+    background-color: #115aa8;
+    color: white;
+    width: auto;
+    min-width: 180px;
+  }
+  .btn-secondary {
+    background-color: #295780;
+    color: rgb(255, 255, 255);
+    width: auto;
+    min-width: 160px;
+  }
+  #botoesExtra .btn-primary,
+  #botoesExtra .btn-secondary {
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 8px;
+    margin: 5px;
+  }
+  div[style*="text-align:center"] button {
+    display: inline-block;
+  }
+  </style>
 </head>
 <body>
   <!-- Cabeçalho -->
@@ -20,27 +67,61 @@
     </nav>
   </header>
 
-  <!-- Quiz -->
+  <!-- QUIZ -->
   <div class="quiz-box">
-    <div class="progress">
-      <div class="progress-fill"></div>
-      <span>50%</span>
-    </div>
-    <h3>Questão 1 de 2</h3>
-    <p><strong>O que é um algoritmo?</strong></p>
+    <p><strong>1. O que é um algoritmo?</strong></p>
     <div class="options">
-      <input type="radio" id="op1" name="quiz">
-      <label for="op1">A. Um tipo de computador</label>
-
-      <input type="radio" id="op2" name="quiz">
-      <label for="op2">B. Uma sequência lógica de passos para resolver um problema</label>
-
-      <input type="radio" id="op3" name="quiz">
-      <label for="op3">C. Uma linguagem de programação</label>
-
-      <input type="radio" id="op4" name="quiz">
-      <label for="op4">D. Um software específico</label>
+      <input type="radio" id="q1a" name="q1" value="A"><label for="q1a">A. Um tipo de computador</label>
+      <input type="radio" id="q1b" name="q1" value="B"><label for="q1b">B. Uma sequência lógica de passos para resolver um problema</label>
+      <input type="radio" id="q1c" name="q1" value="C"><label for="q1c">C. Uma linguagem de programação</label>
+      <input type="radio" id="q1d" name="q1" value="D"><label for="q1d">D. Um software específico</label>
     </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>2. O que é uma variável?</strong></p>
+    <div class="options">
+      <input type="radio" id="q2a" name="q2" value="A"><label for="q2a">A. Um dado fixo</label>
+      <input type="radio" id="q2b" name="q2" value="B"><label for="q2b">B. Um espaço de memória para armazenar valores</label>
+      <input type="radio" id="q2c" name="q2" value="C"><label for="q2c">C. Um tipo de algoritmo</label>
+      <input type="radio" id="q2d" name="q2" value="D"><label for="q2d">D. Um código de erro</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>3. Qual destas opções representa uma estrutura condicional?</strong></p>
+    <div class="options">
+      <input type="radio" id="q3a" name="q3" value="A"><label for="q3a">A. for</label>
+      <input type="radio" id="q3b" name="q3" value="B"><label for="q3b">B. if</label>
+      <input type="radio" id="q3c" name="q3" value="C"><label for="q3c">C. int</label>
+      <input type="radio" id="q3d" name="q3" value="D"><label for="q3d">D. return</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>4. Qual das opções é um exemplo de laço de repetição?</strong></p>
+    <div class="options">
+      <input type="radio" id="q4a" name="q4" value="A"><label for="q4a">A. while</label>
+      <input type="radio" id="q4b" name="q4" value="B"><label for="q4b">B. else</label>
+      <input type="radio" id="q4c" name="q4" value="C"><label for="q4c">C. switch</label>
+      <input type="radio" id="q4d" name="q4" value="D"><label for="q4d">D. break</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>5. Qual a função principal de um algoritmo?</strong></p>
+    <div class="options">
+      <input type="radio" id="q5a" name="q5" value="A"><label for="q5a">A. Criar gráficos</label>
+      <input type="radio" id="q5b" name="q5" value="B"><label for="q5b">B. Resolver problemas de forma lógica</label>
+      <input type="radio" id="q5c" name="q5" value="C"><label for="q5c">C. Editar textos</label>
+      <input type="radio" id="q5d" name="q5" value="D"><label for="q5d">D. Armazenar arquivos</label>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-bottom:40px;">
+    <button class="btn btn-primary" onclick="verificarQuiz()">Finalizar Quiz</button>
+    <p id="resultado" style="margin-top:10px; font-weight:bold;"></p>
+    <div id="botoesExtra"></div>
   </div>
 
   <!-- Rodapé -->
@@ -58,14 +139,68 @@
       Desenvolvido por Instituto de Tecnologia Educacional<br>
       © 2025 DevCourse. Todos os direitos reservados.
     </div>
-    <title>Rede Social</title>
-
-
     <div class="rede-social">
-    <strong>Siga-nos:</strong>
-    <img src="imagens/instagram.png" alt="Instagram" class="icone">
-    <a href="https://www.instagram.com/bytecluboficial" target="_blank">@bytecluboficial</a>
-  </div>
+      <strong>Siga-nos:</strong>
+      <img src="imagens/instagram.png" alt="Instagram" class="icone">
+      <a href="https://www.instagram.com/bytecluboficial" target="_blank">@bytecluboficial</a>
+    </div>
   </footer>
+  
+  <script>
+    function verificarQuiz() {
+      const respostasCorretas = {
+        q1: "B",
+        q2: "B",
+        q3: "B",
+        q4: "A",
+        q5: "B"
+      };
+
+      let acertos = 0;
+
+      // Limpa estilos anteriores
+      document.querySelectorAll("label").forEach(label => {
+        label.classList.remove("errada", "correta");
+      });
+
+      // Verifica respostas
+      for (let questao in respostasCorretas) {
+        const selecionada = document.querySelector(`input[name="${questao}"]:checked`);
+        const correta = respostasCorretas[questao];
+        if (selecionada) {
+          const label = document.querySelector(`label[for="${selecionada.id}"]`);
+          if (selecionada.value === correta) {
+            acertos++;
+            label.classList.add("correta");
+          } else {
+            label.classList.add("errada");
+          }
+        }
+      }
+
+      const resultado = document.getElementById("resultado");
+      const botoes = document.getElementById("botoesExtra");
+      botoes.innerHTML = ""; // limpa botões anteriores
+
+      if (acertos >= 3) {
+        resultado.textContent = `Parabéns! Você acertou ${acertos}/5 e desbloqueou o Módulo 2!`;
+        localStorage.setItem("modulo2Liberado", "true");
+
+        const proximo = document.createElement("button");
+        proximo.textContent = "Ir para o próximo módulo";
+        proximo.className = "btn btn-primary";
+        proximo.onclick = () => window.location.href = "modulo2.html";
+        botoes.appendChild(proximo);
+      } else {
+        resultado.textContent = `Você acertou ${acertos}/5. É necessário 60% de acertos para desbloquear o próximo módulo.`;
+
+        const refazer = document.createElement("button");
+        refazer.textContent = "Refazer Quiz";
+        refazer.className = "btn btn-secondary";
+        refazer.onclick = () => location.reload();
+        botoes.appendChild(refazer);
+      }
+    }
+  </script>
 </body>
 </html>
