@@ -106,5 +106,16 @@ function saudacao() {
     <a href="https://www.instagram.com/bytecluboficial" target="_blank">@bytecluboficial</a>
   </div>
   </footer>
+        <script>
+  const proximoModulo = document.querySelector('button[onclick*="modulo6.html"]');
+  const liberado = localStorage.getItem("modulo6Liberado");
+
+  if (!liberado) {
+    proximoModulo.disabled = true;
+    proximoModulo.textContent = "Bloqueado";
+    proximoModulo.style.backgroundColor = "#999";
+    proximoModulo.style.cursor = "not-allowed";
+  }
+</script>
 </body>
 </html>

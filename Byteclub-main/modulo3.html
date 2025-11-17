@@ -76,7 +76,7 @@
           </code>
         </pre><br>
 
-        <p><strong>Exercício Prático:</strong> Crie um arquivo HTML que contenha um título principal (`<h1>`), um parágrafo (`<p>`) e um link para um site de sua preferência.</p>
+        <p><strong>Exercício Prático:</strong> Crie um arquivo HTML que contenha um título principal (`um parágrafo`),  (`e um link para um site de sua preferência.`) 
       </div>
     </div>
 
@@ -117,5 +117,16 @@
     <a href="https://www.instagram.com/bytecluboficial" target="_blank">@bytecluboficial</a>
   </div>
   </footer>
+    <script>
+  const proximoModulo = document.querySelector('button[onclick*="modulo4.html"]');
+  const liberado = localStorage.getItem("modulo4Liberado");
+
+  if (!liberado) {
+    proximoModulo.disabled = true;
+    proximoModulo.textContent = "Bloqueado";
+    proximoModulo.style.backgroundColor = "#999";
+    proximoModulo.style.cursor = "not-allowed";
+  }
+</script>
 </body>
 </html>

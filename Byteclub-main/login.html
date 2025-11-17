@@ -53,35 +53,9 @@
       © 2025 DevCourse. Todos os direitos reservados.
     </div>
 
-    <!-- 🔻 SEU RODAPÉ ORIGINAL MANTIDO INTACTO 🔻 -->
+    <!-- Rodapé -->
     <div class="rede-social">
       <title>Rede Social</title>
-      <style>
-        .rede-social {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 6px;
-          font-family: Arial, sans-serif;
-          background-color: #cfe2ff;
-          padding: 10px;
-        }
-
-        .rede-social .icone {
-          width: 22px;
-          height: 22px;
-        }
-
-        .rede-social a {
-          text-decoration: none;
-          color: #000;
-          font-weight: bold;
-        }
-
-        .rede-social a:hover {
-          color: #007bff;
-        }
-      </style>
       <div class="rede-social">
         <strong>Siga-nos:</strong>
         <img src="imagens/instagram.png" alt="Instagram" class="icone">
@@ -118,7 +92,7 @@
     if (!emailCadastrado || !senhaCadastrada || !nome) {
       mensagemErro.style.display = "block";
       mensagemErro.innerHTML =
-        "⚠️ Nenhum usuário cadastrado.<br>Por favor, cadastre-se agora!";
+        "Nenhum usuário cadastrado.<br>Por favor, cadastre-se agora!";
       botaoCadastro.classList.add("piscando");
       return;
     }

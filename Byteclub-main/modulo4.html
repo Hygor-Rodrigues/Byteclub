@@ -92,7 +92,8 @@ h1 {
         <button class="btn btn-primary" onclick="window.location.href='modulo5.html'">Próximo Módulo</button>
       </div>
       
-    </div> </div> <footer>
+    </div>
+    <footer>
     <div>
       <strong>Nossa Equipe:</strong><br>
       LUIS FELIPE AZEVEDO ROQUE<br>
@@ -114,5 +115,16 @@ h1 {
     <a href="https://www.instagram.com/bytecluboficial" target="_blank">@bytecluboficial</a>
   </div>
   </footer>
+      <script>
+  const proximoModulo = document.querySelector('button[onclick*="modulo5.html"]');
+  const liberado = localStorage.getItem("modulo5Liberado");
+
+  if (!liberado) {
+    proximoModulo.disabled = true;
+    proximoModulo.textContent = "Bloqueado";
+    proximoModulo.style.backgroundColor = "#999";
+    proximoModulo.style.cursor = "not-allowed";
+  }
+</script>
 </body>
 </html>
