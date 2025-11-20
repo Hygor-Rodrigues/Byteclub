@@ -26,7 +26,7 @@
             min-height: 100vh;
         }
 
-        /* Cabeçalho  */
+        /* Cabeçalho  */
         header {
             background-color: #fff;
             border-bottom: 1px solid #ccc;
@@ -63,7 +63,7 @@
         /* ESTILO DA LOGO ATUALIZADO (Usando a imagem fornecida) */
         .logo-btn img,
         .logo img {
-            width: 165px; /* Tamanho da logo ajustado */
+            width: 165px;
             height: auto;
             border: none;
             outline: none;
@@ -71,7 +71,7 @@
             pointer-events: none;
         }
 
-        /* Navegação  */
+        /* Navegação  */
         nav a {
             text-decoration: none;
             margin: 0 10px;
@@ -194,7 +194,7 @@
             color: white;
         }
 
-        /* Botões empilhados verticalmente  */
+        /* Botões empilhados verticalmente  */
         .button-group {
             display: flex;
             flex-direction: column;
@@ -206,17 +206,12 @@
             width: 100%;
         }
 
-        /*Página Inicial - Banner (Não usado no Fórum, mas mantido no CSS)*/
-        .banner {
-            display: none; 
-        }
-
         /* Fórum */
         .forum-header {
             background: #cce0ff;
             padding: 20px;
             text-align: left;
-            max-width: 800px; /* Limita a largura do header do fórum */
+            max-width: 800px;
             margin: 40px auto 0;
             border-radius: 10px 10px 0 0;
         }
@@ -252,7 +247,7 @@
             font-size: 14px;
             margin-bottom: 0;
             border-radius: 20px;
-            background-color: #0080ff; /* Cor do botão Nova Pergunta */
+            background-color: #0080ff;
         }
 
         /* Post */
@@ -305,7 +300,7 @@
         .author-icon {
             width: 30px;
             height: 30px;
-            background-color: #004080; /* Cor de fundo do ícone */
+            background-color: #004080;
             color: white;
             border-radius: 50%;
             display: flex;
@@ -359,7 +354,6 @@
         
         /* Rodapé */
         footer {
-            /* Mantém o estilo do footer */
             margin-top: auto;
             width: 100%;
             background-color: #cfe2ff;
@@ -373,7 +367,6 @@
             box-shadow: 0px -2px 4px rgba(0,0,0,0.1);
         }
 
-        /* Estilo do nome e botão sair */
         #navbar .user-name {
             display: inline-block;
             padding: 8px 12px;
@@ -403,25 +396,25 @@
         #navbar .logout-link:hover {
             background: rgba(217,83,79,0.08);
         }
-        
-        /* Estilo da Rede Social no Footer */
+
         .rede-social, .email-contato {
             display: flex;
             align-items: center;
-            justify-content: flex-start; /* Alinhamento à esquerda no footer */
+            justify-content: flex-start;
             gap: 8px; 
             margin-bottom: 8px;
         }
+
         .icone {
             width: 24px;
             height: 24px;
         }
-        .rede-social img { /* Estilo para a imagem do Instagram */
+
+        .rede-social img {
             width: 24px;
             height: 24px;
         }
 
-        /* Adicionando responsividade para o container de posts */
         @media (max-width: 850px) {
             .post, .container-box.large {
                 width: 95%;
@@ -431,6 +424,10 @@
             }
         }
 
+        /* 🔥 Ajuste solicitado — Afastar os posts do rodapé */
+        #postsContainer {
+            margin-bottom: 50px;
+        }
     </style>
 </head>
 
@@ -444,9 +441,10 @@
         <nav id="navbar">
             <a href="homeCurso.html">Início</a>
             <a href="modulos.html">Módulos</a>
-            <a href="forum.html" style="background-color: #e6f0ff;">Fórum</a> <a href="suporte.html">Suporte</a>
+            <a href="forum.html" style="background-color: #e6f0ff;">Fórum</a>
+            <a href="suporte.html">Suporte</a>
             <a href="login.html" id="loginLink">Entrar</a>
-            </nav>
+        </nav>
     </header>
 
     <main>
@@ -473,8 +471,7 @@
             <div style="clear: both;"></div>
         </div>
         
-        <div id="postsContainer">
-            </div>
+        <div id="postsContainer"></div>
 
     </main>
     
@@ -507,22 +504,18 @@
         const loginLink = document.getElementById('loginLink');
         const navbar = document.getElementById('navbar');
         
-        // --- Lógica de Usuário Logado ---
         const usuarioLogado = localStorage.getItem('usuarioLogado');
         const userName = usuarioLogado ? JSON.parse(usuarioLogado).nome : "Usuário Anônimo"; 
         
         if (usuarioLogado) {
             const usuario = JSON.parse(usuarioLogado);
 
-            // Oculta o botão "Entrar"
             loginLink.style.display = 'none';
 
-            // Cria o nome do usuário
-            const nomeUsuario = document.createElement('span'); // Mudado para span para não ser link de navegação padrão
+            const nomeUsuario = document.createElement('span');
             nomeUsuario.className = 'user-name';
             nomeUsuario.textContent = `Olá, ${usuario.nome}!`;
 
-            // Cria botão "Sair"
             const sair = document.createElement('a');
             sair.className = 'logout-link';
             sair.textContent = 'Sair';
@@ -537,8 +530,6 @@
             navbar.appendChild(sair);
         }
 
-
-        // --- Funções de LocalStorage ---
         function savePosts(posts) {
             localStorage.setItem('forumPosts', JSON.stringify(posts));
         }
@@ -547,13 +538,11 @@
             return JSON.parse(localStorage.getItem('forumPosts')) || [];
         }
 
-        // --- Função de Renderização (Estilo do CSS fornecido) ---
         function renderPosts() {
             const posts = getPosts();
             postsContainer.innerHTML = '';
 
             if (posts.length === 0) {
-                // Mensagem quando não há posts
                 postsContainer.innerHTML = '<p class="container-box large" style="text-align: center; color: #555; max-width: 800px;">Nenhuma pergunta publicada ainda. Seja o primeiro a perguntar!</p>';
                 return;
             }
@@ -562,7 +551,6 @@
                 const div = document.createElement('div');
                 div.className = 'post'; 
                 
-                // Trata as tags, garantindo que seja um array e usando as duas primeiras
                 const tags = Array.isArray(post.tags) ? post.tags : [post.tags];
                 const tagsHtml = tags.map(tag => `<span class="tag">${tag}</span>`).join('');
 
@@ -587,21 +575,22 @@
             });
         }
 
-        // --- Event Listener para Nova Pergunta (Mostrar/Esconder) ---
         newPostBtn.addEventListener('click', () => {
             if (!usuarioLogado) {
                 alert('Você precisa estar logado para criar uma nova pergunta.');
                 window.location.href = 'login.html';
                 return;
             }
-            // Alterna a visibilidade do formulário
-            postForm.style.display = postForm.style.display === 'block' ? 'none' : 'block';
+
+            postForm.style.display = postForm.style.display === 'block'
+                ? 'none'
+                : 'block';
+
             if (postForm.style.display === 'block') {
                 document.getElementById('postTitle').focus(); 
             }
         });
 
-        // --- Event Listener para Publicar (Submeter) ---
         submitPost.addEventListener('click', () => {
             const title = document.getElementById('postTitle').value.trim();
             const content = document.getElementById('postContent').value.trim();
@@ -613,26 +602,23 @@
             
             const posts = getPosts();
             
-            // Cria um novo post
             const newPost = {
                 title: title,
                 content: content,
                 author: userName,
                 time: "Agora mesmo", 
-                tags: [title.split(' ')[0].toLowerCase()] // Gera uma tag simples do primeiro nome
+                tags: [title.split(' ')[0].toLowerCase()]
             };
 
             posts.unshift(newPost);
             savePosts(posts);
             renderPosts();
 
-            // Limpar e esconder o formulário
             document.getElementById('postTitle').value = '';
             document.getElementById('postContent').value = '';
             postForm.style.display = 'none';
         });
 
-        // Simula a carga de posts iniciais (opcional, para testes)
         function loadInitialPosts() {
             if (getPosts().length === 0) {
                 const initialPosts = [
@@ -655,7 +641,6 @@
             }
         }
 
-        // Inicia o carregamento e renderização dos posts
         loadInitialPosts();
         renderPosts();
     </script>
