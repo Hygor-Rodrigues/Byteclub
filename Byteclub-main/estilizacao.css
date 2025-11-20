@@ -1257,4 +1257,108 @@ label.errada {
     padding: 20px;
   }
 }
+
+
+}
+
+/* Fundo escurecido + efeito blur */
+#modalDeclaracao {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Caixa do modal */
+#modalConteudo {
+  background: #ffffffcc;
+  backdrop-filter: blur(10px);
+  padding: 25px 35px;
+  border-radius: 15px;
+  width: 360px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  animation: scaleUp 0.25s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Título */
+#modalConteudo h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+  color: #222;
+}
+
+/* Texto */
+#modalConteudo p {
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Input estilizado */
+#modalConteudo input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #000000;
+  outline: none;
+  margin-bottom: 15px;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+#modalConteudo input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px #007bff75;
+}
+
+/* Botões */
+.btn-modal {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 6px;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+/* Botão confirmar */
+.btn-confirmar {
+  background: #007bff;
+  color: white;
+    border: 2px solid #242525;
+}
+
+.btn-confirmar:hover {
+  background: #0062cc;
+}
+
+/* Botão cancelar */
+.btn-cancelar {
+  background: #ddd;
+    border: 2px solid #242525;
+}
+
+.btn-cancelar:hover {
+  background: #c5c5c5;
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
