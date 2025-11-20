@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Módulo 6 - Projeto Final</title> 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulo 6 - Projeto Final</title>
   <link rel="stylesheet" href="estilizacao.css">
   <link rel="icon" href="imagens/favcon_.ico" type="image/x-icon">
 
@@ -11,12 +11,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
   <style>
-    /* Modal da declaração */
     #modalDeclaracao {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.5);
       justify-content: center;
       align-items: center;
       z-index: 1000;
@@ -24,39 +23,37 @@
 
     #modalConteudo {
       background: #fff;
-      padding: 25px;
+      padding: 22px;
       border-radius: 10px;
-      width: 350px;
+      width: 360px;
       text-align: center;
-      box-shadow: 0 0 12px rgba(0,0,0,0.3);
-      animation: aparecer 0.3s ease-out;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      font-family: Arial, sans-serif;
     }
 
-    @keyframes aparecer {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
+    #modalConteudo h3 { margin-bottom: 8px; color: #004080; }
+    #modalConteudo p { margin-bottom: 10px; color: #333; font-size: 14px; }
 
     #modalConteudo input {
-      width: 90%;
+      width: 92%;
       padding: 10px;
-      margin-top: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #aaa;
+      margin-top: 6px;
+      margin-bottom: 12px;
+      border: 1px solid #bbb;
       border-radius: 6px;
+      font-size: 14px;
     }
 
     .btn-modal {
-      padding: 10px 15px;
+      padding: 10px 14px;
       border: none;
       border-radius: 6px;
       cursor: pointer;
       font-weight: bold;
     }
-    .btn-confirmar { background: #4CAF50; color: white; }
-    .btn-cancelar { background: #d33; color: white; margin-left: 10px; }
+    .btn-confirmar { background: #1351cc; color: white; }
+    .btn-cancelar { background: #d33; color: white; margin-left: 8px; }
   </style>
-
 </head>
 <body>
   <header>
@@ -74,36 +71,26 @@
 
   <section class="intro" style="text-align: left;">
     <h2>Módulo 6 - Projeto Final</h2>
-    <p>Parabéns! É hora de colocar em prática tudo o que aprendeu, criando seu próprio projeto completo.</p>
+    <p>Parabéns! É hora de colocar em prática tudo o que aprendeu!</p>
   </section>
 
   <div class="module-grid">
-    <div class="main-content"> 
+    <div class="main-content">
       <div class="conteudo">
-
         <div class="tabs">
           <button class="active">Instruções</button>
-          <button>Entrega</button>
         </div>
 
-        <h3>🎯 Objetivo do Projeto</h3><br>
-        <p>Desenvolver uma <b>página web completa e responsiva</b> usando HTML, CSS, JavaScript.</p><br>
+        <h3>🎯 Objetivo do Projeto</h3>
+        <p>Desenvolver uma página web completa e responsiva que utilize HTML, CSS e JavaScript.</p>
 
-        <h3>⚙️ Requisitos Obrigatórios</h3><br>
+        <h3>⚙️ Requisitos Obrigatórios</h3>
         <ul>
           <li>HTML Semântico</li>
           <li>CSS Avançado</li>
-          <li>JavaScript Interativo</li>
+          <li>Interatividade com JavaScript</li>
           <li>Links e Imagens</li>
-        </ul><br>
-
-        <h3>📝 Ideias de Projeto</h3><br>
-        <ol>
-          <li>Portfólio</li>
-          <li>Landing Page</li>
-          <li>Calculadora</li>
-        </ol><br>
-
+        </ul>
       </div>
     </div>
 
@@ -111,7 +98,6 @@
       <div class="box">
         <h3>Entrega do Projeto</h3>
         <button class="btn btn-primary" onclick="window.location.href='entregaProjetoFinal.html'">Enviar Projeto</button>
-        <button class="btn btn-secondary">Baixar Template</button>
       </div>
 
       <div class="box">
@@ -119,7 +105,6 @@
         <button class="btn btn-secondary" onclick="window.location.href='modulo5.html'">Módulo Anterior</button>
         <button class="btn btn-secondary" onclick="window.location.href='modulos.html'">Módulos</button>
 
-        <!-- GERAR DECLARAÇÃO -->
         <button class="btn btn-primary" onclick="abrirDeclaracao()">Gerar Declaração</button>
 
         <button class="btn btn-primary" onclick="window.location.href='homeCurso.html'">Concluir Curso</button>
@@ -150,72 +135,90 @@
     </div>
   </footer>
 
-  <!-- MODAL -->
+  <!-- MODAL PARA DECLARAÇÃO -->
   <div id="modalDeclaracao">
-    <div id="modalConteudo">
+    <div id="modalConteudo" role="dialog" aria-modal="true">
       <h3>Gerar Declaração</h3>
       <p>Digite seu nome completo:</p>
       <input type="text" id="nomeAluno" placeholder="Seu nome completo">
-      <br>
-      <button class="btn-modal btn-confirmar" onclick="gerarPDF()">Gerar PDF</button>
-      <button class="btn-modal btn-cancelar" onclick="fecharDeclaracao()">Cancelar</button>
+      <div>
+        <button class="btn-modal btn-confirmar" onclick="gerarPDF()">Gerar PDF</button>
+        <button class="btn-modal btn-cancelar" onclick="fecharDeclaracao()">Cancelar</button>
+      </div>
     </div>
   </div>
 
   <script>
-  function abrirDeclaracao() {
-    document.getElementById("modalDeclaracao").style.display = "flex";
-  }
-
-  function fecharDeclaracao() {
-    document.getElementById("modalDeclaracao").style.display = "none";
-  }
-
-  async function gerarPDF() {
-    const nome = document.getElementById("nomeAluno").value.trim();
-    if (nome === "") {
-      alert("Por favor, digite seu nome.");
-      return;
+    function abrirDeclaracao() {
+      document.getElementById("modalDeclaracao").style.display = "flex";
+      document.getElementById("nomeAluno").value = "";
     }
 
-    const { jsPDF } = window.jspdf;
-    const pdf = new jsPDF();
+    function fecharDeclaracao() {
+      document.getElementById("modalDeclaracao").style.display = "none";
+    }
 
-    /* -----------------------------------------------------------
-       LOGO DO BYTECLUB EM BASE64 (sua imagem convertida)
-       — funciona em qualquer navegador
-    ----------------------------------------------------------- */
-    const logoBase64 =
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAGQCAMAAABy06SnAAAAS1BMVEX///8AAADh4eG1tbXY2NjT09PV1dW7u7v39/fp6ent7e3MzMyQkJCHh4eDg4OcnJyioqKwsLC9vb2Ojo6srKzw8PDNzc3BwcHV1dXR0dF5eXkXJQImAAAEFElEQVR4nO3cS3LjOhCGYbRAgRdbPv//ywUoWW3uR2ymlk/wEYBLETymFcpnSUsctNk6heAQEBASssHoPazTA/gkGEXUXJJLLfi5yRvCNrI6VsgGAaHo9dZYkTfGZNVVRFlE0YyqS/fWznuaCG2lLBVmOAXoJ2i8LJIYurx8WcN6i/K3PaY5E9O+V1mhxXRVVkciqJp9DL49myI7nqpJotOGJkkp7Wua/TManIeZDVX6QdlqzTeWY5Avzkdxl3pNGdiszPOIky3Uczdlz7YTpcDo1i4ezgmO6PDLJrVN6a8GN28AL5soNqd7qV3CyMfCVxYvBy06SnVAk0nnNA3uRlaR271GGBqBPdZiZsaAJ+lZeI7IuAvV38DSHLVbkP4Jrped1IovnEkmHGawEq+y3OCfzLXTr4Wr9PXgC/GuiRl6VwB3p6kAMPx/+qvOB0fOkH4An1xd6Q671O5j3ge6zGyF/F7kh/3Gzdhvj1+8G26OD9oTi/Ik/knfyqabuX41sJLdnOjFkWDXLI4sdAlnXrhIRbkIuO3WxirMRqkRkNvztNFVQVw1Gc7YCOjxIqFZ3VAbAV/TSEuxsjjXNMTvEihQ/HUkNzxaz2YsR0jCwXTlzAIXazhbugzuDUFcPRl1BDpRP70dNDO4PjoMnIKPQw/hTyBC0bY4Z1cdqUPVHtVHCnQWmvMRGsiE9zMDFMvx6bMpiKFFitvolG/GpNZgbC+5Q5e0siJVo9Vc3rroWAtxEvsC0BpvyEukgqS0bkkCm1cWg5kyR3O6jwxKF1uHmIiiaTZGi99ZTSdKCbFpsio6tZZQzQ0jrISFRCGDpa2BkLomqKgkl0aoVuv5QW0t87Z0pQfM9vDOMkpk2rtIhBGG99nmCaTKty+O+kO5OVwOB1p5MNDoAuCEi0aKBsl0x2Efacr/7EQo1leChX2NDSSSXTHQun7qY5T2r8j04YfGLwRoTSesFiNUFDXLdYTTyt30YIOCwVDDDeWGPAHDLcGRIDvDT+xr3aMcMBXNIN1qNbfkWf9eKJeNEqXWiwxup6vJzpuG1HsfrN7OYMva9n32CuWHa3gwxhpT2ymlkPwR0EBASExHsRvN7kYM/qf+oAAAAASUVORK5CYII=";
+    async function gerarPDF() {
+      const nome = document.getElementById("nomeAluno").value.trim();
+      if (!nome) {
+        alert("Digite seu nome completo.");
+        return;
+      }
 
-    // Adiciona a imagem no topo (centralizada)
-    pdf.addImage(logoBase64, "PNG", 60, 10, 90, 40);
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({ unit: "mm", format: "a4" });
 
-    // Título abaixo da logo
-    pdf.setFontSize(20);
-    pdf.setFont("helvetica", "bold");
-    pdf.text("DECLARAÇÃO DE CONCLUSÃO", 105, 60, null, null, "center");
+      const largura = doc.internal.pageSize.getWidth();
+      const margem = 18;
 
-    // Texto principal
-    pdf.setFontSize(13);
-    pdf.setFont("helvetica", "normal");
-    pdf.text(
-      `Declaramos que ${nome}, concluiu com êxito o curso\n` +
-      `"Introdução à Lógica de Programação e Conceitos de Front-End",\n` +
-      `totalizando 20 horas de carga horária.\n\n` +
-      `Curso desenvolvido pelo Instituto de Tecnologia Educacional\n` +
-      `e disponibilizado pela plataforma ByteClub.`,
-      20, 80
-    );
+      // Borda
+      doc.setDrawColor(40, 76, 160);
+      doc.setLineWidth(0.8);
+      doc.rect(margem / 2, 12, largura - margem, 270);
 
-    // Rodapé elegante
-    pdf.setFontSize(11);
-    pdf.text("Emitido automaticamente pela plataforma ByteClub — 2025", 105, 280, null, null, "center");
+      // Título
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(20);
+      doc.text("DECLARAÇÃO DE CONCLUSÃO", largura / 2, 38, { align: "center" });
 
-    pdf.save(`Declaracao-${nome}.pdf`);
-    fecharDeclaracao();
-  }
-</script>
+      // Subtítulo
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(11);
+      doc.setTextColor(80, 80, 80);
+      doc.text("Instituto de Tecnologia Educacional — Plataforma ByteClub", largura / 2, 46, { align: "center" });
+
+      // Linha separadora
+      doc.setDrawColor(200, 200, 200);
+      doc.line(margem, 50, largura - margem, 50);
+
+      // Texto principal
+      const texto =
+        `Declaramos que ${nome} concluiu com êxito o curso "Introdução à Lógica de Programação e Conceitos de Front-End", ` +
+        `totalizando 4 (quatro) horas de carga horária. ` +
+        `O curso foi desenvolvido pelo Instituto de Tecnologia Educacional e disponibilizado pela plataforma ByteClub.`;
+
+      doc.setFontSize(12);
+      doc.setTextColor(30, 30, 30);
+      doc.text(doc.splitTextToSize(texto, largura - margem * 2), margem, 68);
+
+      // Data
+      const data =
+        `Data de emissão: ${new Date().toLocaleDateString("pt-BR")}`;
+      doc.setFontSize(10);
+      doc.setTextColor(100, 100, 100);
+      doc.text(doc.splitTextToSize(data, largura - margem * 2), margem, 110);
+
+      // Rodapé
+      doc.setFontSize(8);
+      doc.setTextColor(120, 120, 120);
+      doc.text("Instituto de Tecnologia Educacional — ByteClub", largura / 2, 288, { align: "center" });
+
+      const nomeSeguro = nome.replace(/[^a-zA-Z0-9À-ÿ ]/g, "").replace(/\s+/g, "_");
+      doc.save(`Declaracao_${nomeSeguro}.pdf`);
+
+      fecharDeclaracao();
+    }
+  </script>
 
 </body>
 </html>
