@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilizacao.css">
+  <link rel="icon" href="imagens/favcon_.ico" type="image/x-icon">
+  <title>Quiz Final - Módulo 6</title>
+</head>
+<body>
+
+<header>
+  <button class="logo-btn" onclick="window.location.href='homeCurso.html'">
+     <img src="imagens/logo.png" alt="ByteClub Logo">
+  </button>
+  <nav>
+    <a href="homeCurso.html">Início</a>
+    <a href="forum.html">Fórum</a>
+    <a href="suporte.html">Suporte</a>
+  </nav>
+</header>
+
+<h2 style="text-align:center; margin-top:20px;">Quiz Final - Módulo 6</h2>
+
+<!-- QUIZ -->
+<div id="quizContainer">
+
+  <div class="quiz-box">
+    <p><strong>1. Em lógica de programação, qual estrutura é mais adequada para evitar repetição de código?</strong></p>
+    <div class="options">
+      <input type="radio" id="q1a" name="q1" value="A"><label for="q1a">A. Variáveis</label>
+      <input type="radio" id="q1b" name="q1" value="B"><label for="q1b">B. Condicionais</label>
+      <input type="radio" id="q1c" name="q1" value="C"><label for="q1c">C. Funções</label>
+      <input type="radio" id="q1d" name="q1" value="D"><label for="q1d">D. Comentários</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>2. O que significa “complexidade O(n)” em um algoritmo?</strong></p>
+    <div class="options">
+      <input type="radio" id="q2a" name="q2" value="A"><label for="q2a">A. O tempo cresce proporcionalmente à entrada</label>
+      <input type="radio" id="q2b" name="q2" value="B"><label for="q2b">B. O algoritmo nunca termina</label>
+      <input type="radio" id="q2c" name="q2" value="C"><label for="q2c">C. O tempo é sempre constante</label>
+      <input type="radio" id="q2d" name="q2" value="D"><label for="q2d">D. O algoritmo usa muita memória</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>3. Qual estrutura remove o último elemento de um array em JavaScript?</strong></p>
+    <div class="options">
+      <input type="radio" id="q3a" name="q3" value="A"><label for="q3a">A. shift()</label>
+      <input type="radio" id="q3b" name="q3" value="B"><label for="q3b">B. slice()</label>
+      <input type="radio" id="q3c" name="q3" value="C"><label for="q3c">C. pop()</label>
+      <input type="radio" id="q3d" name="q3" value="D"><label for="q3d">D. unshift()</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>4. No JavaScript, qual método converte texto em número inteiro?</strong></p>
+    <div class="options">
+      <input type="radio" id="q4a" name="q4" value="A"><label for="q4a">A. Number()</label>
+      <input type="radio" id="q4b" name="q4" value="B"><label for="q4b">B. parseInt()</label>
+      <input type="radio" id="q4c" name="q4" value="C"><label for="q4c">C. toString()</label>
+      <input type="radio" id="q4d" name="q4" value="D"><label for="q4d">D. float()</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>5. Em HTML, qual atributo define o texto alternativo de uma imagem?</strong></p>
+    <div class="options">
+      <input type="radio" id="q5a" name="q5" value="A"><label for="q5a">A. title</label>
+      <input type="radio" id="q5b" name="q5" value="B"><label for="q5b">B. src</label>
+      <input type="radio" id="q5c" name="q5" value="C"><label for="q5c">C. alt</label>
+      <input type="radio" id="q5d" name="q5" value="D"><label for="q5d">D. desc</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>6. Em CSS, qual propriedade controla o espaçamento ENTRE linhas de texto?</strong></p>
+    <div class="options">
+      <input type="radio" id="q6a" name="q6" value="A"><label for="q6a">A. letter-spacing</label>
+      <input type="radio" id="q6b" name="q6" value="B"><label for="q6b">B. word-spacing</label>
+      <input type="radio" id="q6c" name="q6" value="C"><label for="q6c">C. line-height</label>
+      <input type="radio" id="q6d" name="q6" value="D"><label for="q6d">D. spacing</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>7. Qual é o resultado de 3 == "3" em JavaScript?</strong></p>
+    <div class="options">
+      <input type="radio" id="q7a" name="q7" value="A"><label for="q7a">A. false</label>
+      <input type="radio" id="q7b" name="q7" value="B"><label for="q7b">B. true</label>
+      <input type="radio" id="q7c" name="q7" value="C"><label for="q7c">C. undefined</label>
+      <input type="radio" id="q7d" name="q7" value="D"><label for="q7d">D. error</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>8. Qual comando CSS centraliza um elemento na horizontal usando margin?</strong></p>
+    <div class="options">
+      <input type="radio" id="q8a" name="q8" value="A"><label for="q8a">A. margin: center;</label>
+      <input type="radio" id="q8b" name="q8" value="B"><label for="q8b">B. margin: auto;</label>
+      <input type="radio" id="q8c" name="q8" value="C"><label for="q8c">C. margin: left-right;</label>
+      <input type="radio" id="q8d" name="q8" value="D"><label for="q8d">D. margin: 100%;</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>9. Em lógica, qual é a saída do algoritmo abaixo?</strong></p>
+<pre>
+x = 5
+se x > 3 então
+  x = x + 2
+fim
+</pre>
+    <div class="options">
+      <input type="radio" id="q9a" name="q9" value="A"><label for="q9a">A. 3</label>
+      <input type="radio" id="q9b" name="q9" value="B"><label for="q9b">B. 5</label>
+      <input type="radio" id="q9c" name="q9" value="C"><label for="q9c">C. 7</label>
+      <input type="radio" id="q9d" name="q9" value="D"><label for="q9d">D. 2</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>10. Em HTML, qual elemento é SEMÂNTICO?</strong></p>
+    <div class="options">
+      <input type="radio" id="q10a" name="q10" value="A"><label for="q10a">A. &lt;div&gt;</label>
+      <input type="radio" id="q10b" name="q10" value="B"><label for="q10b">B. &lt;span&gt;</label>
+      <input type="radio" id="q10c" name="q10" value="C"><label for="q10c">C. &lt;section&gt;</label>
+      <input type="radio" id="q10d" name="q10" value="D"><label for="q10d">D. &lt;b&gt;</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>11. Em JavaScript, qual evento detecta quando o usuário digita no teclado?</strong></p>
+    <div class="options">
+      <input type="radio" id="q11a" name="q11" value="A"><label for="q11a">A. onpress</label>
+      <input type="radio" id="q11b" name="q11" value="B"><label for="q11b">B. onkey</label>
+      <input type="radio" id="q11c" name="q11" value="C"><label for="q11c">C. keydown</label>
+      <input type="radio" id="q11d" name="q11" value="D"><label for="q11d">D. typing</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>12. O que significa DOM?</strong></p>
+    <div class="options">
+      <input type="radio" id="q12a" name="q12" value="A"><label for="q12a">A. Documento Organizado Modular</label>
+      <input type="radio" id="q12b" name="q12" value="B"><label for="q12b">B. Documento de Ordem Múltipla</label>
+      <input type="radio" id="q12c" name="q12" value="C"><label for="q12c">C. Dynamic Option Model</label>
+      <input type="radio" id="q12d" name="q12" value="D"><label for="q12d">D. Document Object Model</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>13. Em CSS, qual unidade é relativa ao tamanho da fonte do elemento?</strong></p>
+    <div class="options">
+      <input type="radio" id="q13a" name="q13" value="A"><label for="q13a">A. px</label>
+      <input type="radio" id="q13b" name="q13" value="B"><label for="q13b">B. %</label>
+      <input type="radio" id="q13c" name="q13" value="C"><label for="q13c">C. em</label>
+      <input type="radio" id="q13d" name="q13" value="D"><label for="q13d">D. cm</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>14. Em JavaScript, o que o método map() faz?</strong></p>
+    <div class="options">
+      <input type="radio" id="q14a" name="q14" value="A"><label for="q14a">A. Filtra valores</label>
+      <input type="radio" id="q14b" name="q14" value="B"><label for="q14b">B. Remove elementos nulos</label>
+      <input type="radio" id="q14c" name="q14" value="C"><label for="q14c">C. Transforma cada item do array</label>
+      <input type="radio" id="q14d" name="q14" value="D"><label for="q14d">D. Ordena elementos</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>15. Como declarar um objeto em JavaScript?</strong></p>
+    <div class="options">
+      <input type="radio" id="q15a" name="q15" value="A"><label for="q15a">A. let obj = [];</label>
+      <input type="radio" id="q15b" name="q15" value="B"><label for="q15b">B. let obj = {};</label>
+      <input type="radio" id="q15c" name="q15" value="C"><label for="q15c">C. let obj = &lt;&gt;;</label>
+      <input type="radio" id="q15d" name="q15" value="D"><label for="q15d">D. let obj = ()</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>16. Em algoritmos, qual estrutura representa uma repetição com contador?</strong></p>
+    <div class="options">
+      <input type="radio" id="q16a" name="q16" value="A"><label for="q16a">A. while</label>
+      <input type="radio" id="q16b" name="q16" value="B"><label for="q16b">B. loop infinito</label>
+      <input type="radio" id="q16c" name="q16" value="C"><label for="q16c">C. if</label>
+      <input type="radio" id="q16d" name="q16" value="D"><label for="q16d">D. for</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>17. O que faz o comando return dentro de uma função?</strong></p>
+    <div class="options">
+      <input type="radio" id="q17a" name="q17" value="A"><label for="q17a">A. Interrompe o programa</label>
+      <input type="radio" id="q17b" name="q17" value="B"><label for="q17b">B. Retorna um valor e encerra a função</label>
+      <input type="radio" id="q17c" name="q17" value="C"><label for="q17c">C. Envia dados ao servidor</label>
+      <input type="radio" id="q17d" name="q17" value="D"><label for="q17d">D. Chama outra função</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>18. Em HTML, qual tag é usada para destacar código?</strong></p>
+    <div class="options">
+      <input type="radio" id="q18a" name="q18" value="A"><label for="q18a">A. &lt;mark&gt;</label>
+      <input type="radio" id="q18b" name="q18" value="B"><label for="q18b">B. &lt;code&gt;</label>
+      <input type="radio" id="q18c" name="q18" value="C"><label for="q18c">C. &lt;highlight&gt;</label>
+      <input type="radio" id="q18d" name="q18" value="D"><label for="q18d">D. &lt;script&gt;</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>19. Em CSS, qual seletor seleciona todos os elementos de uma classe?</strong></p>
+    <div class="options">
+      <input type="radio" id="q19a" name="q19" value="A"><label for="q19a">A. #classe</label>
+      <input type="radio" id="q19b" name="q19" value="B"><label for="q19b">B. .classe</label>
+      <input type="radio" id="q19c" name="q19" value="C"><label for="q19c">C. *classe</label>
+      <input type="radio" id="q19d" name="q19" value="D"><label for="q19d">D. %classe</label>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <p><strong>20. Qual o resultado de typeof [] no JavaScript?</strong></p>
+    <div class="options">
+      <input type="radio" id="q20a" name="q20" value="A"><label for="q20a">A. "array"</label>
+      <input type="radio" id="q20b" name="q20" value="B"><label for="q20b">B. "object"</label>
+      <input type="radio" id="q20c" name="q20" value="C"><label for="q20c">C. "list"</label>
+      <input type="radio" id="q20d" name="q20" value="D"><label for="q20d">D. "collection"</label>
+    </div>
+  </div>
+
+</div>
+
+<div style="text-align:center; margin-bottom:40px;">
+  <button class="btn btn-primary" onclick="verificarQuiz()">Finalizar Quiz</button>
+  <p id="resultado" style="margin-top:10px; font-weight:bold;"></p>
+  <div id="botoesExtra"></div>
+</div>
+
+<footer>
+  <div>
+    <strong>Nossa Equipe:</strong><br>
+    LUIS FELIPE AZEVEDO ROQUE<br>
+    LUCAS ANTÔNIO ANDRADE REIS<br>
+    JOÃO PEDRO DE AZEVEDO DOMINGUES<br>
+    HYGOR RODRIGUES DA SILVA GOMES<br>
+    LUCAS TERRA FANTONE
+  </div>
+  <div>
+    <strong>Sobre o Curso</strong><br>
+    Desenvolvido por Instituto de Tecnologia Educacional<br>
+    © 2025 DevCourse. Todos os direitos reservados.
+  </div>
+  <div class="rede-social">
+    <strong>Siga-nos:</strong>
+    <img src="imagens/instagram.png" alt="Instagram" class="icone">
+    <a href="https://www.instagram.com/bytecluboficial" target="_blank">@bytecluboficial</a>
+  </div>
+</footer>
+
+<script>
+function verificarQuiz() {
+  const respostasCorretas = {
+    q1:"C", q2:"A", q3:"C", q4:"B", q5:"C",
+    q6:"C", q7:"B", q8:"B", q9:"C", q10:"C",
+    q11:"C", q12:"D", q13:"C", q14:"C", q15:"B",
+    q16:"D", q17:"B", q18:"B", q19:"B", q20:"B"
+  };
+
+  let acertos = 0;
+
+  document.querySelectorAll("label").forEach(l => l.classList.remove("correta","errada"));
+
+  for (let questao in respostasCorretas) {
+    const selecionada = document.querySelector(`input[name="${questao}"]:checked`);
+    if (selecionada) {
+      const label = document.querySelector(`label[for="${selecionada.id}"]`);
+      if (selecionada.value === respostasCorretas[questao]) {
+        acertos++;
+        label.classList.add("correta");
+      } else {
+        label.classList.add("errada");
+      }
+    }
+  }
+
+  const resultado = document.getElementById("resultado");
+  const botoes = document.getElementById("botoesExtra");
+  botoes.innerHTML = "";
+
+  if (acertos >= 12) {
+    resultado.textContent = `Parabéns! Você acertou ${acertos}/20 e desbloqueou a declaração!`;
+
+    localStorage.setItem("modulo6Liberado","true");
+
+    const voltar = document.createElement("button");
+    voltar.textContent = "Voltar ao Módulo 6";
+    voltar.className = "btn btn-primary";
+    voltar.onclick = () => window.location.href = "modulo6.html";
+    botoes.appendChild(voltar);
+
+  } else {
+    resultado.textContent = `Você acertou ${acertos}/20. São necessários 12 acertos (60%).`;
+
+    const refazer = document.createElement("button");
+    refazer.textContent = "Refazer Quiz";
+    refazer.className = "btn btn-secondary";
+    refazer.onclick = () => location.reload();
+    botoes.appendChild(refazer);
+  }
+}
+</script>
+</body>
+</html>
