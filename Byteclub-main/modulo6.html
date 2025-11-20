@@ -6,6 +6,57 @@
   <title>Módulo 6 - Projeto Final</title> 
   <link rel="stylesheet" href="estilizacao.css">
   <link rel="icon" href="imagens/favcon_.ico" type="image/x-icon">
+
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <style>
+    /* Modal da declaração */
+    #modalDeclaracao {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #modalConteudo {
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      width: 350px;
+      text-align: center;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+      animation: aparecer 0.3s ease-out;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    #modalConteudo input {
+      width: 90%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+    }
+
+    .btn-modal {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .btn-confirmar { background: #4CAF50; color: white; }
+    .btn-cancelar { background: #d33; color: white; margin-left: 10px; }
+  </style>
+
 </head>
 <body>
   <header>
@@ -27,55 +78,56 @@
   </section>
 
   <div class="module-grid">
-    
     <div class="main-content"> 
-        
       <div class="conteudo">
+
         <div class="tabs">
           <button class="active">Instruções</button>
           <button>Entrega</button>
         </div>
 
         <h3>🎯 Objetivo do Projeto</h3><br>
-        <p>Desenvolver uma **página web completa e responsiva** que utilize os três pilares que você estudou: **HTML** para estrutura, **CSS** para estilo e **JavaScript** para interatividade.</p><br>
-        
+        <p>Desenvolver uma <b>página web completa e responsiva</b> usando HTML, CSS, JavaScript.</p><br>
+
         <h3>⚙️ Requisitos Obrigatórios</h3><br>
-        <p>Seu projeto deve incluir:</p>
         <ul>
-          <li>**Estrutura HTML Semântica**: Uso correto de tags como `header`, `nav`, `section`, `footer`.</li>
-          <li>**Estilização CSS Avançada**: Uso de Flexbox ou Grid para layout e design responsivo (adaptável a celulares e desktops).</li>
-          <li>**Interatividade JS**: Pelo menos uma função JavaScript que mude o conteúdo ou estilo da página com base em uma interação do usuário (ex: um botão de "modo escuro", um validador de formulário simples, ou um carrossel de imagens).</li>
-          <li>**Links e Imagens**: Inclusão de links externos e imagens relevantes.</li>
+          <li>HTML Semântico</li>
+          <li>CSS Avançado</li>
+          <li>JavaScript Interativo</li>
+          <li>Links e Imagens</li>
         </ul><br>
 
-        <h3>📝 Ideias de Projeto (Sugestões)</h3><br>
+        <h3>📝 Ideias de Projeto</h3><br>
         <ol>
-          <li>**Site de Portfólio Pessoal**: Apresente seus projetos e habilidades.</li>
-          <li>**Landing Page de Produto**: Crie uma página de venda simples para um produto fictício.</li>
-          <li>**Calculadora Simples**: Use JS para fazer operações matemáticas.</li>
+          <li>Portfólio</li>
+          <li>Landing Page</li>
+          <li>Calculadora</li>
         </ol><br>
 
-        <h3>📅 Prazo e Ajuda</h3><br>
-        <p>Você tem 2 semanas para concluir o projeto. Lembre-se que o **Fórum** e o **Suporte** estão disponíveis para tirar dúvidas sobre a implementação.</p>
-        
       </div>
-      
-    </div> <div class="sidebar">
-      
+    </div>
+
+    <div class="sidebar">
       <div class="box">
         <h3>Entrega do Projeto</h3>
         <button class="btn btn-primary" onclick="window.location.href='entregaProjetoFinal.html'">Enviar Projeto</button>
-        <button class="btn btn-secondary">Baixar Template de Estrutura</button> 
+        <button class="btn btn-secondary">Baixar Template</button>
       </div>
 
       <div class="box">
         <h3>Navegação</h3>
         <button class="btn btn-secondary" onclick="window.location.href='modulo5.html'">Módulo Anterior</button>
         <button class="btn btn-secondary" onclick="window.location.href='modulos.html'">Módulos</button>
+
+        <!-- GERAR DECLARAÇÃO -->
+        <button class="btn btn-primary" onclick="abrirDeclaracao()">Gerar Declaração</button>
+
         <button class="btn btn-primary" onclick="window.location.href='homeCurso.html'">Concluir Curso</button>
       </div>
-      
-    </div> </div> <footer>
+    </div>
+  </div>
+
+  <footer>
     <div>
       <strong>Nossa Equipe:</strong><br>
       LUIS FELIPE AZEVEDO ROQUE<br>
@@ -84,18 +136,86 @@
       HYGOR RODRIGUES DA SILVA GOMES<br>
       LUCAS TERRA FANTONE
     </div>
+
     <div>
       <strong>Sobre o Curso</strong><br>
       Desenvolvido por Instituto de Tecnologia Educacional<br>
       © 2025 DevCourse. Todos os direitos reservados.
     </div>
-    <title>Rede Social</title>
-  
+
     <div class="rede-social">
-    <strong>Siga-nos:</strong>
-    <img src="imagens/instagram.png" alt="Instagram" class="icone">
-    <a href="https://www.instagram.com/bytecluboficial" target="_blank">@bytecluboficial</a>
-  </div>
+      <strong>Siga-nos:</strong>
+      <img src="imagens/instagram.png" alt="Instagram" class="icone">
+      <a href="https://www.instagram.com/bytecluboficial" target="_blank">@bytecluboficial</a>
+    </div>
   </footer>
+
+  <!-- MODAL -->
+  <div id="modalDeclaracao">
+    <div id="modalConteudo">
+      <h3>Gerar Declaração</h3>
+      <p>Digite seu nome completo:</p>
+      <input type="text" id="nomeAluno" placeholder="Seu nome completo">
+      <br>
+      <button class="btn-modal btn-confirmar" onclick="gerarPDF()">Gerar PDF</button>
+      <button class="btn-modal btn-cancelar" onclick="fecharDeclaracao()">Cancelar</button>
+    </div>
+  </div>
+
+  <script>
+  function abrirDeclaracao() {
+    document.getElementById("modalDeclaracao").style.display = "flex";
+  }
+
+  function fecharDeclaracao() {
+    document.getElementById("modalDeclaracao").style.display = "none";
+  }
+
+  async function gerarPDF() {
+    const nome = document.getElementById("nomeAluno").value.trim();
+    if (nome === "") {
+      alert("Por favor, digite seu nome.");
+      return;
+    }
+
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF();
+
+    /* -----------------------------------------------------------
+       LOGO DO BYTECLUB EM BASE64 (sua imagem convertida)
+       — funciona em qualquer navegador
+    ----------------------------------------------------------- */
+    const logoBase64 =
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAGQCAMAAABy06SnAAAAS1BMVEX///8AAADh4eG1tbXY2NjT09PV1dW7u7v39/fp6ent7e3MzMyQkJCHh4eDg4OcnJyioqKwsLC9vb2Ojo6srKzw8PDNzc3BwcHV1dXR0dF5eXkXJQImAAAEFElEQVR4nO3cS3LjOhCGYbRAgRdbPv//ywUoWW3uR2ymlk/wEYBLETymFcpnSUsctNk6heAQEBASssHoPazTA/gkGEXUXJJLLfi5yRvCNrI6VsgGAaHo9dZYkTfGZNVVRFlE0YyqS/fWznuaCG2lLBVmOAXoJ2i8LJIYurx8WcN6i/K3PaY5E9O+V1mhxXRVVkciqJp9DL49myI7nqpJotOGJkkp7Wua/TManIeZDVX6QdlqzTeWY5Avzkdxl3pNGdiszPOIky3Uczdlz7YTpcDo1i4ezgmO6PDLJrVN6a8GN28AL5soNqd7qV3CyMfCVxYvBy06SnVAk0nnNA3uRlaR271GGBqBPdZiZsaAJ+lZeI7IuAvV38DSHLVbkP4Jrped1IovnEkmHGawEq+y3OCfzLXTr4Wr9PXgC/GuiRl6VwB3p6kAMPx/+qvOB0fOkH4An1xd6Q671O5j3ge6zGyF/F7kh/3Gzdhvj1+8G26OD9oTi/Ik/knfyqabuX41sJLdnOjFkWDXLI4sdAlnXrhIRbkIuO3WxirMRqkRkNvztNFVQVw1Gc7YCOjxIqFZ3VAbAV/TSEuxsjjXNMTvEihQ/HUkNzxaz2YsR0jCwXTlzAIXazhbugzuDUFcPRl1BDpRP70dNDO4PjoMnIKPQw/hTyBC0bY4Z1cdqUPVHtVHCnQWmvMRGsiE9zMDFMvx6bMpiKFFitvolG/GpNZgbC+5Q5e0siJVo9Vc3rroWAtxEvsC0BpvyEukgqS0bkkCm1cWg5kyR3O6jwxKF1uHmIiiaTZGi99ZTSdKCbFpsio6tZZQzQ0jrISFRCGDpa2BkLomqKgkl0aoVuv5QW0t87Z0pQfM9vDOMkpk2rtIhBGG99nmCaTKty+O+kO5OVwOB1p5MNDoAuCEi0aKBsl0x2Efacr/7EQo1leChX2NDSSSXTHQun7qY5T2r8j04YfGLwRoTSesFiNUFDXLdYTTyt30YIOCwVDDDeWGPAHDLcGRIDvDT+xr3aMcMBXNIN1qNbfkWf9eKJeNEqXWiwxup6vJzpuG1HsfrN7OYMva9n32CuWHa3gwxhpT2ymlkPwR0EBASExHsRvN7kYM/qf+oAAAAASUVORK5CYII=";
+
+    // Adiciona a imagem no topo (centralizada)
+    pdf.addImage(logoBase64, "PNG", 60, 10, 90, 40);
+
+    // Título abaixo da logo
+    pdf.setFontSize(20);
+    pdf.setFont("helvetica", "bold");
+    pdf.text("DECLARAÇÃO DE CONCLUSÃO", 105, 60, null, null, "center");
+
+    // Texto principal
+    pdf.setFontSize(13);
+    pdf.setFont("helvetica", "normal");
+    pdf.text(
+      `Declaramos que ${nome}, concluiu com êxito o curso\n` +
+      `"Introdução à Lógica de Programação e Conceitos de Front-End",\n` +
+      `totalizando 20 horas de carga horária.\n\n` +
+      `Curso desenvolvido pelo Instituto de Tecnologia Educacional\n` +
+      `e disponibilizado pela plataforma ByteClub.`,
+      20, 80
+    );
+
+    // Rodapé elegante
+    pdf.setFontSize(11);
+    pdf.text("Emitido automaticamente pela plataforma ByteClub — 2025", 105, 280, null, null, "center");
+
+    pdf.save(`Declaracao-${nome}.pdf`);
+    fecharDeclaracao();
+  }
+</script>
+
 </body>
 </html>
