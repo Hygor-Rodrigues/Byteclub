@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fórum da Comunidade - ByteClub</title>
+    <link rel="icon" href="imagens/favcon_.ico" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <button class="logo-btn" onclick="window.location.href='index.html'">
+                <img src="imagens/logo.png" alt="ByteClub Logo">
+            </button>
+        </div>
+        <nav id="navbar">
+            <a href="index.html">Início</a>
+            <a href="modulos.html">Módulos</a>
+            <a href="forum.html" style="background-color: #e6f0ff;">Fórum</a>
+            <a href="suporte.html">Suporte</a>
+            <a href="login.html" id="loginLink">Entrar</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="forum-header">
+            <h2>Fórum da comunidade</h2>
+            <p>Tire suas dúvidas, compartilhe conhecimento e conecte-se com outros estudantes</p>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar posts..." />
+                <button class="btn" id="newPostBtn">Nova Pergunta</button>
+            </div>
+        </div>
+
+        <div class="container-box large" id="postForm" style="display: none;">
+            <div class="input-group">
+                <label for="postTitle">Título da Pergunta:</label>
+                <input type="text" id="postTitle" placeholder="Ex: Dúvida sobre lógica de loops" />
+            </div>
+            <div class="input-group">
+                <label for="postContent">Descreva sua Dúvida:</label>
+                <textarea id="postContent" rows="5" placeholder="Detalhe sua questão, o que você já tentou e o que precisa de ajuda."></textarea>
+            </div>
+            <button class="btn btn-primary" id="submitPost" style="width: auto; padding: 10px 20px; float: right;">Publicar Dúvida</button>
+            <div style="clear: both;"></div>
+        </div>
+        
+        <div id="postsContainer"></div>
+
+    </main>
+    
+    <footer>
+        <div>
+            <strong>Nossa Equipe:</strong><br>
+            LUIS FELIPE AZEVEDO ROQUE<br>
+            LUCAS ANTÔNIO ANDRADE REIS<br>
+            JOÃO PEDRO DE AZEVEDO DOMINGUES<br>
+            HYGOR RODRIGUES DA SILVA GOMES<br>
+            LUCAS TERRA FANTONE
+        </div>
+        <div>
+            <strong>Sobre o Curso</strong><br>
+            Desenvolvido por Instituto de Tecnologia Educacional<br>
+            © 2025 DevCourse. Todos os direitos reservados.
+        </div>
+        <div class="rede-social">
+            <strong>Siga-nos:</strong>
+            <img src="imagens/instagram.png" alt="Instagram" class="icone">
+            <a href="https://www.instagram.com/bytecluboficial" target="_blank">@bytecluboficial</a>
+        </div>
+    </footer>
+
+    <script>
+        const newPostBtn = document.getElementById('newPostBtn');
+        const postForm = document.getElementById('postForm');
+        const submitPost = document.getElementById('submitPost');
+        const postsContainer = document.getElementById('postsContainer');
+        const loginLink = document.getElementById('loginLink');
+        const navbar = document.getElementById('navbar');
+        
+        const usuarioLogado = localStorage.getItem('usuarioLogado');
+        const userName = usuarioLogado ? JSON.parse(usuarioLogado).nome : "Usuário Anônimo"; 
+        
+        if (usuarioLogado) {
+            const usuario = JSON.parse(usuarioLogado);
+
+            loginLink.style.display = 'none';
+
+            const nomeUsuario = document.createElement('span');
+            nomeUsuario.className = 'user-name';
+            nomeUsuario.textContent = `Olá, ${usuario.nome}!`;
+
+            const sair = document.createElement('a');
+            sair.className = 'logout-link';
+            sair.textContent = 'Sair';
+            sair.href = '#';
+            sair.addEventListener('click', (e) => {
+                e.preventDefault();
+                localStorage.removeItem('usuarioLogado');
+                window.location.href = 'login.html';
+            });
+
+            navbar.appendChild(nomeUsuario);
+            navbar.appendChild(sair);
+        }
+
+        function savePosts(posts) {
+            localStorage.setItem('forumPosts', JSON.stringify(posts));
+        }
+
+        function getPosts() {
+            return JSON.parse(localStorage.getItem('forumPosts')) || [];
+        }
+
+        function renderPosts() {
+            const posts = getPosts();
+            postsContainer.innerHTML = '';
+
+            if (posts.length === 0) {
+                postsContainer.innerHTML = '<p class="container-box large" style="text-align: center; color: #555; max-width: 800px;">Nenhuma pergunta publicada ainda. Seja o primeiro a perguntar!</p>';
+                return;
+            }
+
+            posts.forEach((post, index) => {
+                const div = document.createElement('div');
+                div.className = 'post'; 
+                
+                const tags = Array.isArray(post.tags) ? post.tags : [post.tags];
+                const tagsHtml = tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+
+                div.innerHTML = `
+                    <h3>${post.title}</h3>
+                    <p>${post.content}</p>
+                    <div class="post-footer">
+                        <div class="author">
+                            <div class="author-icon">${post.author.charAt(0).toUpperCase()}</div> 
+                            <div>
+                                <strong>${post.author}</strong><br>
+                                <span style="color: #004080; font-size: 12px;">Estudante</span>
+                            </div>
+                        </div>
+                        <div class="tags">
+                            ${tagsHtml}
+                        </div>
+                        <span class="time">${post.time}</span>
+                    </div>
+                `;
+                postsContainer.appendChild(div);
+            });
+        }
+
+        newPostBtn.addEventListener('click', () => {
+            if (!usuarioLogado) {
+                alert('Você precisa estar logado para criar uma nova pergunta.');
+                window.location.href = 'login.html';
+                return;
+            }
+
+            postForm.style.display = postForm.style.display === 'block'
+                ? 'none'
+                : 'block';
+
+            if (postForm.style.display === 'block') {
+                document.getElementById('postTitle').focus(); 
+            }
+        });
+
+        submitPost.addEventListener('click', () => {
+            const title = document.getElementById('postTitle').value.trim();
+            const content = document.getElementById('postContent').value.trim();
+
+            if (!title || !content) {
+                alert('Preencha o título e o conteúdo antes de publicar.');
+                return;
+            }
+            
+            const posts = getPosts();
+            
+            const newPost = {
+                title: title,
+                content: content,
+                author: userName,
+                time: "Agora mesmo", 
+                tags: [title.split(' ')[0].toLowerCase()]
+            };
+
+            posts.unshift(newPost);
+            savePosts(posts);
+            renderPosts();
+
+            document.getElementById('postTitle').value = '';
+            document.getElementById('postContent').value = '';
+            postForm.style.display = 'none';
+        });
+
+        function loadInitialPosts() {
+            if (getPosts().length === 0) {
+                const initialPosts = [
+                    {
+                        title: "Lógica de programação",
+                        content: "Sou completamente iniciante e gostaria de dicas sobre como começar a pensar de forma lógica para programação...",
+                        author: "André Fernandes",
+                        time: "4 horas atrás",
+                        tags: ["lógica", "dicas"]
+                    },
+                    {
+                        title: "Java script",
+                        content: "Dúvida sobre loops em JavaScript. Estou com dificuldade para entender a diferença entre for, while e do-while. Alguém pode me explicar?",
+                        author: "Marcos Silvério",
+                        time: "2 horas atrás",
+                        tags: ["javascript", "loops"]
+                    }
+                ];
+                savePosts(initialPosts);
+            }
+        }
+
+        loadInitialPosts();
+        renderPosts();
+    </script>
+</body>
+</html>

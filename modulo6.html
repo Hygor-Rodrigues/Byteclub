@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 6 - Projeto Final</title> 
+  <link rel="stylesheet" href="estilizacao.css">
+  <link rel="icon" href="imagens/favcon_.ico" type="image/x-icon">
+
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <button class="logo-btn" onclick="window.location.href='index.html'">
+        <img src="imagens/logo.png" alt="ByteClub Logo">
+      </button>
+    </div>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="forum.html">Fórum</a>
+      <a href="suporte.html">Suporte</a>
+    </nav>
+  </header>
+
+  <section class="intro" style="text-align: left;">
+    <h2>Módulo 6 - Quiz Final</h2>
+    <p>Parabéns! É hora de colocar em prática tudo o que aprendeu, resolvendo o quiz final.</p>
+  </section>
+
+  <div class="module-grid">
+    <div class="main-content"> 
+<div class="conteudo">
+
+  <div class="tabs">
+    <button class="active">Instruções</button>
+  </div>
+
+  <h3> Instruções do Quiz Final</h3><br>
+  <p>
+    Para concluir o Módulo 6 e liberar sua <b>Declaração de Conclusão</b>, você deverá responder o 
+    <b>Quiz Final</b> que avalia todos os conteúdos estudados ao longo do curso.
+  </p><br>
+
+  <h3> Conteúdos que serão cobrados</h3><br>
+  <ul>
+    <li><b>Lógica de Programação</b> — decisões, estruturas condicionais e repetições.</li>
+    <li><b>Algoritmos Básicos</b> — passos lógicos, criação de sequências e resolução de problemas.</li>
+    <li><b>HTML Básico</b> — estrutura da página, tags principais e conceitos fundamentais.</li>
+    <li><b>CSS Básico</b> — estilização, cores, textos, espaçamentos e organização visual.</li>
+    <li><b>JavaScript Básico</b> — variáveis, funções, operadores e interações simples.</li>
+  </ul><br>
+
+  <h3> Sobre o Quiz</h3><br>
+  <ol>
+    <li>O quiz contém <b>20 questões</b> de múltipla escolha.</li>
+    <li>Você precisa acertar <b>pelo menos 60%</b> para ser aprovado.</li>
+    <li>Ao ser aprovado, o botão <b>Gerar Declaração de Conclusão</b> será liberado automaticamente.</li>
+    <li>Se não atingir a nota mínima, você poderá <b>refazer o quiz</b>.</li>
+  </ol><br>
+
+  <p>
+    Quando estiver pronto, clique no botão <b>“Iniciar Quiz”</b> no menu lateral para começar.
+    Boa sorte! 
+  </p>
+
+</div>
+    </div>
+
+    <div class="sidebar">
+      <div class="box">
+        <h3>Quiz Final</h3>
+
+        <!-- CORRIGIDO AQUI -->
+        <button class="btn btn-primary" onclick="window.location.href='quiz6.html'">Iniciar quiz</button>
+      </div>
+
+      <div class="box">
+        <h3>Navegação</h3>
+        <button class="btn btn-secondary" onclick="window.location.href='modulo5.html'">Módulo Anterior</button>
+        <button class="btn btn-secondary" onclick="window.location.href='modulos.html'">Módulos</button>
+
+        <!-- GERAR DECLARAÇÃO -->
+        <button id="btnDeclaracao" class="btn btn-primary" onclick="abrirDeclaracao()" disabled
+         style="background-color:#999; cursor:not-allowed;">
+         Gerar Declaração de Conclusão
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <strong>Nossa Equipe:</strong><br>
+      LUIS FELIPE AZEVEDO ROQUE<br>
+      LUCAS ANTÔNIO ANDRADE REIS<br>
+      JOÃO PEDRO DE AZEVEDO DOMINGUES<br>
+      HYGOR RODRIGUES DA SILVA GOMES<br>
+      LUCAS TERRA FANTONE
+    </div>
+
+    <div>
+      <strong>Sobre o Curso</strong><br>
+      Desenvolvido por Instituto de Tecnologia Educacional<br>
+      © 2025 DevCourse. Todos os direitos reservados.
+    </div>
+
+    <div class="rede-social">
+      <strong>Siga-nos:</strong>
+      <img src="imagens/instagram.png" alt="Instagram" class="icone">
+      <a href="https://www.instagram.com/bytecluboficial" target="_blank">@bytecluboficial</a>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div id="modalDeclaracao">
+    <div id="modalConteudo">
+      <h3>Gerar Declaração</h3>
+      <p>Digite seu nome completo:</p>
+      <input type="text" id="nomeAluno" placeholder="Seu nome completo">
+      <br>
+      <button class="btn-modal btn-confirmar" onclick="gerarPDF()">Gerar PDF</button>
+      <button class="btn-modal btn-cancelar" onclick="fecharDeclaracao()">Cancelar</button>
+    </div>
+  </div> 
+
+
+<script>
+    function abrirDeclaracao() {
+      document.getElementById("modalDeclaracao").style.display = "flex";
+      document.getElementById("nomeAluno").value = " ";
+    }
+
+    function fecharDeclaracao() {
+      document.getElementById("modalDeclaracao").style.display = "none";
+    }
+
+    async function gerarPDF() {
+      const nome = document.getElementById("nomeAluno").value.trim();
+      if (!nome) {
+        alert("Digite seu nome completo.");
+        return;
+      }
+
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({ unit: "mm", format: "a4" });
+
+      const largura = doc.internal.pageSize.getWidth();
+      const margem = 18;
+
+      // Borda
+      doc.setDrawColor(40, 76, 160);
+      doc.setLineWidth(0.8);
+      doc.rect(margem / 2, 12, largura - margem, 270);
+
+      // Título
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(20);
+      doc.text("DECLARAÇÃO DE CONCLUSÃO", largura / 2, 38, { align: "center" });
+
+      // Subtítulo
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(11);
+      doc.setTextColor(80, 80, 80);
+      doc.text("Instituto de Tecnologia Educacional — Plataforma ByteClub", largura / 2, 46, { align: "center" });
+
+      // Linha separadora
+      doc.setDrawColor(200, 200, 200);
+      doc.line(margem, 50, largura - margem, 50);
+
+      // Texto principal
+      const texto =
+        `Declaramos que ${nome} concluiu com êxito o curso "Introdução à Lógica de Programação e Conceitos de Front-End", ` +
+        `totalizando 4 (quatro) horas de carga horária. ` +
+        `O curso foi desenvolvido pelo Instituto de Tecnologia Educacional e disponibilizado pela plataforma ByteClub.`;
+
+      doc.setFontSize(12);
+      doc.setTextColor(30, 30, 30);
+      doc.text(doc.splitTextToSize(texto, largura - margem * 2), margem, 68);
+
+      // Data
+      const data =
+        `Data de emissão: ${new Date().toLocaleDateString("pt-BR")}`;
+      doc.setFontSize(10);
+      doc.setTextColor(100, 100, 100);
+      doc.text(doc.splitTextToSize(data, largura - margem * 2), margem, 110);
+
+      // Rodapé
+      doc.setFontSize(8);
+      doc.setTextColor(120, 120, 120);
+      doc.text("Instituto de Tecnologia Educacional — ByteClub", largura / 2, 288, { align: "center" });
+
+      const nomeSeguro = nome.replace(/[^a-zA-Z0-9À-ÿ ]/g, "").replace(/\s+/g, "_");
+      doc.save(`Declaracao_${nomeSeguro}.pdf`);
+
+      fecharDeclaracao();
+    }
+
+  window.onload = () => {
+    const liberado = localStorage.getItem("modulo6Liberado");
+    const botao = document.getElementById("btnDeclaracao");
+
+    if (liberado === "true") {
+      botao.disabled = false;
+      botao.style.backgroundColor = "";
+      botao.style.cursor = "pointer";
+    } else {
+      botao.disabled = true;
+      botao.style.backgroundColor = "#999";
+      botao.style.cursor = "not-allowed";
+    } 
+  }
+</script>
+</body>
+</html>

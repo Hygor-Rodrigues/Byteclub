@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ByteClub - Módulos</title>
+  <link rel="stylesheet" href="estilizacao.css">
+  <link rel="icon" href="imagens/favcon_.ico" type="image/x-icon">
+</head>
+<body>
+  <!-- Menu -->
+  <header>
+     <div class="logo">
+      <button class="logo-btn" onclick="window.location.href='index.html'">
+       <img src="imagens/logo.png" alt="ByteClub Logo">
+    </div>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="forum.html">Fórum</a>
+      <a href="suporte.html">Suporte</a>
+    </nav>
+  </header>
+
+  <!-- Introdução -->
+  <section class="intro">
+    <h2>Curso de HTML, CSS e JavaScript</h2>
+    <p>O curso está dividido em 6 módulos, que levam você do básico ao avançado no desenvolvimento web. Cada módulo apresenta conceitos essenciais e técnicas práticas, permitindo que você aprenda codificando e construindo projetos reais.</p>
+    <a href="modulo1.html" class="btn">Começar Agora</a>
+  </section>
+  <!-- Mapa dos Módulos -->
+   <section class="modulos">
+  <div style="text-align: center; margin-top: 30px;">
+    <h2>Nossos Módulos</h2>
+    <p>Progresso estruturado com desbloqueio baseado em performance.</p>
+  </div>
+  <div class="cards">
+    
+    <div class="card">
+      <div class="card-header">
+        <img src="imagens/logica.png" alt="Lógica de Programação">
+        <div class="titulo-modulo">
+          <h3>Lógica de Programação</h3>
+          <span class="numero-modulo">Módulo 1</span>
+        </div>
+      </div>
+      <p>Fundamentos e raciocínio lógico na resolução de problemas computacionais.</p>
+      <button onclick="window.location.href='modulo1.html'" class="btn-modulo">Iniciar Módulo</button>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <img src="imagens/algoritmo.png" alt="Algoritmos Básicos">
+        <div class="titulo-modulo">
+          <h3>Algoritmos Básicos</h3>
+          <span class="numero-modulo">Módulo 2</span>
+        </div>
+      </div>
+      <p>Compreenda a estrutura e lógica de algoritmos e crie soluções eficazes.</p>
+      <button onclick="window.location.href='modulo2.html'" class="btn-modulo">Iniciar Módulo</button>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <img src="imagens/html.png" alt="HTML Básico">
+        <div class="titulo-modulo">
+          <h3>HTML Básico</h3>
+          <span class="numero-modulo">Módulo 3</span>
+        </div>
+      </div>
+      <p>Aprenda a criar a estrutura de sites com HTML.</p><br>
+      <button onclick="window.location.href='modulo3.html'" class="btn-modulo">Iniciar Módulo</button>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <img src="imagens/css.png" alt="CSS Básico">
+        <div class="titulo-modulo">
+          <h3>CSS Básico</h3>
+          <span class="numero-modulo">Módulo 4</span>
+        </div>
+      </div>
+      <p>Estilize páginas com CSS e aprenda design web responsivo.</p>
+      <button onclick="window.location.href='modulo4.html'" class="btn-modulo">Iniciar Módulo</button>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <img src="imagens/java.png" alt="JavaScript Básico">
+        <div class="titulo-modulo">
+          <h3>JavaScript Básico</h3>
+          <span class="numero-modulo">Módulo 5</span>
+        </div>
+      </div>
+      <p>Dê interatividade ao seu site com JavaScript.</p><br>
+      <button onclick="window.location.href='modulo5.html'" class="btn-modulo">Iniciar Módulo</button>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <img src="imagens/projeto.png" alt="Projeto Final">
+        <div class="titulo-modulo">
+          <h3>Projeto Final</h3>
+          <span class="numero-modulo">Módulo 6</span>
+        </div>
+      </div>
+      <p>Coloque em prática tudo o que aprendeu criando seu próprio projeto.</p>
+      <button onclick="window.location.href='modulo6.html'" class="btn-modulo">Iniciar Módulo</button>
+    </div>
+
+  </div>
+</section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div>
+      <strong>Nossa Equipe:</strong><br>
+      LUIS FELIPE AZEVEDO ROQUE<br>
+      LUCAS ANTÔNIO ANDRADE REIS<br>
+      JOÃO PEDRO DE AZEVEDO DOMINGUES<br>
+      HYGOR RODRIGUES DA SILVA GOMES<br>
+      LUCAS TERRA FANTONE
+    </div>
+    <div>
+      <strong>Sobre o Curso</strong><br>
+      Desenvolvido por Instituto de Tecnologia Educacional<br>
+      © 2025 DevCourse. Todos os direitos reservados.
+    </div>
+    <title>Rede Social</title>
+
+    <div class="rede-social">
+    <strong>Siga-nos:</strong>
+    <img src="imagens/instagram.png" alt="Instagram" class="icone">
+    <a href="https://www.instagram.com/bytecluboficial" target="_blank">@bytecluboficial</a>
+  </div>
+  </footer>
+
+<script>
+  // Verifica se o usuário está logado
+  if (!localStorage.getItem('usuarioLogado')) {
+    window.location.href = 'login.html';
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Lista de módulos
+    const modulos = [2, 3, 4, 5, 6];
+
+    modulos.forEach(num => {
+      const botao = document.querySelector(`button[onclick*="modulo${num}.html"]`);
+      const liberado = localStorage.getItem(`modulo${num}Liberado`);
+
+      if (botao) {
+        if (!liberado) {
+          botao.style.pointerEvents = "none";
+          botao.style.backgroundColor = "#d9d9d9";
+          botao.style.color = "#777";
+          botao.style.cursor = "not-allowed";
+          botao.style.border = "1px solid #ccc";
+          botao.textContent = " Iniciar Módulo";
+        } else {
+          // LIBERADO
+          botao.style.pointerEvents = "auto";
+          botao.style.backgroundColor = "#333333";
+          botao.style.color = "#fff";
+          botao.style.cursor = "pointer";
+          botao.textContent = "Iniciar Módulo";
+        }
+      }
+    });
+  });
+</script>
+</body>
+
+</html>

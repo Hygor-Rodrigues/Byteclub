@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 3 - HTML Básico</title> 
+  <link rel="stylesheet" href="estilizacao.css">
+  <link rel="icon" href="imagens/favcon_.ico" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <button class="logo-btn" onclick="window.location.href='index.html'">
+        <img src="imagens/logo.png" alt="ByteClub Logo">
+      </button>
+    </div>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="forum.html">Fórum</a>
+      <a href="suporte.html">Suporte</a>
+    </nav>
+  </header>
+
+  <section class="intro" style="text-align: left;">
+    <h2>Módulo 3 - HTML Básico</h2>
+    <p>Aprenda a criar a estrutura de sites com HTML.</p>
+  </section>
+
+  <div class="module-grid">
+    <div>
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/3xtQCvnNDY4" title="Aula sobre HTML Básico"></iframe>
+        <button class="btn btn-primary" style="width: auto;">▶ Assistir Aula</button>
+      </div>
+
+      <div class="conteudo">
+        <div class="tabs">
+          <button class="active">Teoria</button>
+        </div>
+
+        <p><strong>O que é HTML?</strong></p><br>
+        <p>HTML (**HyperText Markup Language**) é a linguagem de marcação padrão usada para criar páginas web. Ele define a **estrutura** e o **conteúdo** de uma página usando um sistema de **elementos** (tags).</p><br>
+        
+        <p><strong>Estrutura de um Documento HTML:</strong></p><br>
+        <p>Todo documento HTML segue uma estrutura básica. As tags principais são:</p>
+        <ul>
+          <li>`&lt;!DOCTYPE html&gt;`: Declara o tipo de documento.</li>
+          <li>`&lt;html&gt;`: O elemento raiz que envolve todo o conteúdo da página.</li>
+          <li>`&lt;head&gt;`: Contém metadados (título da aba, links para CSS, etc.).</li>
+          <li>`&lt;body&gt;`: Contém todo o conteúdo visível da página (textos, imagens, links, etc.).</li>
+        </ul><br>
+
+        <p><strong>Tags Comuns e Funções:</strong></p><br>
+        <ol>
+          <li>`&lt;h1&gt;` a `&lt;h6&gt;`: Títulos e subtítulos (hierarquia de conteúdo).</li>
+          <li>`&lt;p&gt;`: Parágrafos.</li>
+          <li>`&lt;a&gt;`: Links (âncoras). O atributo `href` define o destino.</li>
+          <li>`&lt;img&gt;`: Inserir imagens. O atributo `src` define o caminho da imagem.</li>
+          <li>`&lt;ul&gt;` e `&lt;ol&gt;`: Listas não ordenadas e ordenadas.</li>
+        </ol><br>
+
+        <p><strong>Exemplo Básico de HTML (Corrigido):</strong></p><br>
+        <pre>
+          <code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+  &lt;title&gt;Minha Primeira Página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Bem-vindo!&lt;/h1&gt;
+  &lt;p&gt;Este é um parágrafo de exemplo.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+          </code>
+        </pre><br>
+
+        <p><strong>Exercício Prático:</strong> Crie um arquivo HTML que contenha um título principal (`um parágrafo`),  (`e um link para um site de sua preferência.`) 
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="box">
+        <h3>Atividade prática</h3>
+        <button class="btn btn-primary" onclick="window.location.href='quiz3.html'">Iniciar quiz</button>
+      </div>
+
+      <div class="box">
+        <h3>Navegação</h3>
+        <button class="btn btn-secondary" onclick="window.location.href='modulo2.html'">Módulo Anterior</button>
+        <button class="btn btn-secondary" onclick="window.location.href='modulos.html'">Módulos</button>
+        <button class="btn btn-primary" onclick="window.location.href='modulo4.html'">Próximo Módulo</button>
+      </div>
+    </div>
+
+  </div> <footer>
+    <div>
+      <strong>Nossa Equipe:</strong><br>
+      LUIS FELIPE AZEVEDO ROQUE<br>
+      LUCAS ANTÔNIO ANDRADE REIS<br>
+      JOÃO PEDRO DE AZEVEDO DOMINGUES<br>
+      HYGOR RODRIGUES DA SILVA GOMES<br>
+      LUCAS TERRA FANTONE
+    </div>
+    <div>
+      <strong>Sobre o Curso</strong><br>
+      Desenvolvido por Instituto de Tecnologia Educacional<br>
+      © 2025 DevCourse. Todos os direitos reservados.
+    </div>
+    <title>Rede Social</title>
+  
+    <div class="rede-social">
+    <strong>Siga-nos:</strong>
+    <img src="imagens/instagram.png" alt="Instagram" class="icone">
+    <a href="https://www.instagram.com/bytecluboficial" target="_blank">@bytecluboficial</a>
+  </div>
+  </footer>
+    <script>
+  const proximoModulo = document.querySelector('button[onclick*="modulo4.html"]');
+  const liberado = localStorage.getItem("modulo4Liberado");
+
+  if (!liberado) {
+    proximoModulo.disabled = true;
+    proximoModulo.textContent = "Bloqueado";
+    proximoModulo.style.backgroundColor = "#999";
+    proximoModulo.style.cursor = "not-allowed";
+  }
+</script>
+</body>
+
+</html>
+
