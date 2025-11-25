@@ -175,7 +175,7 @@
       const texto =
         `Declaramos que ${nome} concluiu com êxito o curso "Introdução à Lógica de Programação e Conceitos de Front-End", ` +
         `totalizando 4 (quatro) horas de carga horária. ` +
-        `O curso foi desenvolvido pelo Instituto de Tecnologia Educacional e disponibilizado pela plataforma ByteClub.`;
+        `O curso foi desenvolvido por estudantes da Universidade Professor Edson Antônio Velano e disponibilizado pela plataforma ByteClub.`;
 
       doc.setFontSize(12);
       doc.setTextColor(30, 30, 30);
@@ -191,7 +191,7 @@
       // Rodapé
       doc.setFontSize(8);
       doc.setTextColor(120, 120, 120);
-      doc.text("Instituto de Tecnologia Educacional — ByteClub", largura / 2, 288, { align: "center" });
+      doc.text("ByteClub Obs:Está declaração não possui valor de certificado.", largura / 2, 288, { align: "center" });
 
       const nomeSeguro = nome.replace(/[^a-zA-Z0-9À-ÿ ]/g, "").replace(/\s+/g, "_");
       doc.save(`Declaracao_${nomeSeguro}.pdf`);
@@ -216,3 +216,4 @@
 </script>
 </body>
 </html>
+
