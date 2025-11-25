@@ -165,7 +165,7 @@
       doc.setFont("helvetica", "normal");
       doc.setFontSize(11);
       doc.setTextColor(80, 80, 80);
-      doc.text("Instituto de Tecnologia Educacional — Plataforma ByteClub", largura / 2, 46, { align: "center" });
+      doc.text("Curso de Ciência da Computação - Unifenas - Plataforma Byteclub", largura / 2, 46, { align: "center" });
 
       // Linha separadora
       doc.setDrawColor(200, 200, 200);
@@ -191,7 +191,7 @@
       // Rodapé
       doc.setFontSize(8);
       doc.setTextColor(120, 120, 120);
-      doc.text("ByteClub Obs:Está declaração não possui valor de certificado.", largura / 2, 288, { align: "center" });
+      doc.text("ByteClub Obs:Esta declaração não possui valor de certificado.", largura / 2, 288, { align: "center" });
 
       const nomeSeguro = nome.replace(/[^a-zA-Z0-9À-ÿ ]/g, "").replace(/\s+/g, "_");
       doc.save(`Declaracao_${nomeSeguro}.pdf`);
@@ -216,4 +216,5 @@
 </script>
 </body>
 </html>
+
 
